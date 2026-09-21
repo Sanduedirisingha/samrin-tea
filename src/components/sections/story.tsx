@@ -76,7 +76,7 @@ export function Story({
             {tiles.map(({ slot, icon: Icon, label, caption }) => (
               <li
                 key={label}
-                className="hatch border-line bg-surface-2 relative flex aspect-[4/3] flex-col justify-between overflow-hidden rounded-2xl border p-6"
+                className="hatch border-line bg-surface-2 relative flex aspect-[4/3] flex-col items-center justify-between overflow-hidden rounded-2xl border p-6 md:items-stretch"
               >
                 <SlotImage slot={slot} sizes="(min-width: 768px) 33vw, 100vw" />
                 {hasSlot(slot) ? (

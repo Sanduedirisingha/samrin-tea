@@ -50,7 +50,7 @@ export function ContactBand() {
           />
           <a
             href={siteConfig.hotline.href}
-            className="bg-surface-2 border-line hover:border-heading flex items-center gap-4 rounded-2xl border px-6 py-5 transition-colors"
+            className="bg-surface-2 border-line hover:border-heading flex items-center gap-4 rounded-2xl border px-6 py-5 transition-colors max-md:mx-auto"
           >
             <Phone aria-hidden className="text-gold-ink size-6" strokeWidth={1.5} />
             <span>
@@ -67,7 +67,7 @@ export function ContactBand() {
             <li key={title} className="flex">
               <Link
                 href={href}
-                className="group reveal border-line bg-surface-2 hover:border-heading flex w-full flex-col rounded-2xl border p-7 transition-colors"
+                className="group reveal border-line bg-surface-2 hover:border-heading flex w-full flex-col rounded-2xl border p-7 transition-colors max-md:items-center"
               >
                 <Icon aria-hidden className="text-gold-ink size-7" strokeWidth={1.4} />
                 <p className="text-muted mt-5 text-xs tracking-[0.16em] uppercase">{eyebrow}</p>

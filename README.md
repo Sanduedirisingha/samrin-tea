@@ -90,6 +90,16 @@ src/lib/                  env, site-config, format, districts, cart/, payments/,
 Design tokens (colours from the brand guide, fonts) live in `src/app/globals.css` under `@theme`.
 Burgundy (`strong`) is used **only** to identify the Strong range.
 
+## Light and dark mode
+
+A sun/moon button in the header switches themes. The choice is saved in `localStorage` (`samrin_theme`); on a first visit the site follows the
+device setting and falls back to dark. An inline script in `src/app/layout.tsx` applies it before paint, so there is no flash.
+
+Components use **semantic tokens** (`bg-surface`, `bg-surface-2`, `text-ink`, `text-heading`, `text-muted`, `border-line`, `text-gold-ink`, `bg-btn`) whose
+values flip under `:root[data-theme="dark"]` in `src/app/globals.css`. Use `dark:` utilities only for one-off differences. Panels that look the same in both
+modes (burgundy/green "choose" cards, the business card, toasts) use the raw palette (`bg-forest`, `text-paper`) on purpose. The logo follows the theme
+(`<Logo />`: full colour in light mode, reversed in dark mode).
+
 ## How to add photos
 
 Photo slots (Origin tile, the four Making cards, the three Story tiles) show the design's texture until you fill them:

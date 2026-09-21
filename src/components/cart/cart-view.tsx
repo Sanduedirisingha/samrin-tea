@@ -30,7 +30,7 @@ export function CartView() {
         {lines.map(({ productId, qty, item, lineTotal }) => (
           <li
             key={productId}
-            className="grid grid-cols-[5.5rem_1fr] gap-4 py-6 sm:grid-cols-[7rem_1fr]"
+            className="grid grid-cols-1 justify-items-center gap-4 py-6 sm:grid-cols-[7rem_1fr] sm:justify-items-stretch"
           >
             <Link
               href={productHref(item.slug)}
@@ -46,8 +46,8 @@ export function CartView() {
                 />
               )}
             </Link>
-            <div className="flex min-w-0 flex-col">
-              <div className="flex items-start justify-between gap-3">
+            <div className="flex min-w-0 flex-col max-sm:w-full max-sm:items-center">
+              <div className="flex items-start justify-between gap-3 max-sm:flex-col max-sm:items-center">
                 <div>
                   <Link
                     href={productHref(item.slug)}

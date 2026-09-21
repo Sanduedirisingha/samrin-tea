@@ -41,7 +41,7 @@ export function MobileNav() {
               <Link
                 href={item.href}
                 onClick={() => setOpen(false)}
-                className="text-ink flex min-h-14 items-center font-serif text-2xl"
+                className="text-ink flex min-h-14 items-center justify-center font-serif text-2xl"
               >
                 {item.label}
               </Link>

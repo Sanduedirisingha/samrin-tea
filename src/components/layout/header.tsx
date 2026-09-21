@@ -37,7 +37,7 @@ export function Header() {
             href="/contact?type=business"
             variant="on-dark"
             size="sm"
-            className="hidden sm:inline-flex"
+            className="max-md:hidden"
           >
             Business supply
           </ButtonLink>

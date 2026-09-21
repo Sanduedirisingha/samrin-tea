@@ -52,7 +52,7 @@ export default async function ContactPage({ searchParams }: PageProps<"/contact"
               Reach us
             </h2>
             <ul className="mt-5 space-y-4">
-              <li className="flex gap-4">
+              <li className="flex gap-4 max-md:flex-col max-md:items-center max-md:gap-1">
                 <Phone aria-hidden className="text-gold-ink mt-1 size-5 shrink-0" />
                 <div>
                   <p className="text-muted text-sm">Consumer care</p>
@@ -64,7 +64,7 @@ export default async function ContactPage({ searchParams }: PageProps<"/contact"
                   </a>
                 </div>
               </li>
-              <li className="flex gap-4">
+              <li className="flex gap-4 max-md:flex-col max-md:items-center max-md:gap-1">
                 <Globe aria-hidden className="text-gold-ink mt-1 size-5 shrink-0" />
                 <div>
                   <p className="text-muted text-sm">Website</p>
@@ -77,7 +77,7 @@ export default async function ContactPage({ searchParams }: PageProps<"/contact"
                 </div>
               </li>
               {siteConfig.email && (
-                <li className="flex gap-4">
+                <li className="flex gap-4 max-md:flex-col max-md:items-center max-md:gap-1">
                   <Mail aria-hidden className="text-gold-ink mt-1 size-5 shrink-0" />
                   <div>
                     <p className="text-muted text-sm">Email</p>
@@ -91,7 +91,7 @@ export default async function ContactPage({ searchParams }: PageProps<"/contact"
                 </li>
               )}
               {siteConfig.whatsapp && (
-                <li className="flex gap-4">
+                <li className="flex gap-4 max-md:flex-col max-md:items-center max-md:gap-1">
                   <MessageCircle aria-hidden className="text-gold-ink mt-1 size-5 shrink-0" />
                   <div>
                     <p className="text-muted text-sm">WhatsApp</p>
@@ -117,7 +117,10 @@ export default async function ContactPage({ searchParams }: PageProps<"/contact"
                 { label: "Manufactured by", name: manufacturer.name, lines: manufacturer.address },
                 { label: "Distributed by", name: distributor.name, lines: distributor.address },
               ].map((a) => (
-                <div key={a.label} className="flex gap-4">
+                <div
+                  key={a.label}
+                  className="flex gap-4 max-md:flex-col max-md:items-center max-md:gap-1"
+                >
                   <MapPin aria-hidden className="text-gold-ink mt-1 size-5 shrink-0" />
                   <div>
                     <p className="text-muted text-sm">{a.label}</p>

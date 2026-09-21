@@ -37,7 +37,7 @@ export function Hero({ strong, bopf }: { strong?: CatalogProduct; bopf?: Catalog
       )}
       <div className="container-page grid min-h-[calc(100svh-5rem)] items-center gap-14 py-16 lg:grid-cols-[1.05fr_1fr] lg:py-24">
         <div>
-          <p className="text-muted flex items-center gap-3 text-xs font-medium tracking-[0.22em] uppercase">
+          <p className="text-muted flex items-center gap-3 text-xs font-medium tracking-[0.22em] uppercase max-md:justify-center">
             <span aria-hidden className="bg-gold h-px w-8" />
             Pure Ceylon black tea · Ruhuna
           </p>

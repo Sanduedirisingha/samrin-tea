@@ -38,7 +38,7 @@ function Card({ index, step }: { index: number; step: (typeof steps)[number] }) 
   const Icon = step.icon;
   return (
     <li className="border-line bg-surface-2 w-[min(84vw,30rem)] shrink-0 snap-start rounded-3xl border p-7 sm:p-9">
-      <div className="flex items-start justify-between">
+      <div className="flex items-start justify-between max-md:flex-col max-md:items-center max-md:gap-2">
         <span className="text-gold font-serif text-5xl">{String(index + 1).padStart(2, "0")}</span>
         <Icon aria-hidden className="text-gold-ink size-7" strokeWidth={1.4} />
       </div>

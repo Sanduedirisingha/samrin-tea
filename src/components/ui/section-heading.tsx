@@ -22,7 +22,7 @@ export function SectionHeading({
       {eyebrow && (
         <p
           className={cn(
-            "text-gold-ink mb-4 flex items-center gap-3 text-xs font-semibold tracking-[0.2em] uppercase",
+            "text-gold-ink mb-4 flex items-center gap-3 text-xs font-semibold tracking-[0.2em] uppercase max-md:justify-center",
             align === "center" && "justify-center",
           )}
         >

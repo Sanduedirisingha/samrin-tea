@@ -181,15 +181,15 @@ export function BrewSteps() {
                     return (
                       <li
                         key={s.title}
-                        className="border-line bg-surface-2 flex items-center gap-4 rounded-2xl border p-4"
+                        className="border-line bg-surface-2 flex flex-col items-center gap-3 rounded-2xl border p-5 text-center"
                       >
                         {img && (
-                          <div className="ring-gold/50 relative size-20 shrink-0 overflow-hidden rounded-full ring-1">
+                          <div className="ring-gold/50 relative size-28 shrink-0 overflow-hidden rounded-full ring-1">
                             <Image
                               src={img.src}
                               alt={img.alt}
                               fill
-                              sizes="5rem"
+                              sizes="7rem"
                               className={cn("object-cover", s.position)}
                             />
                           </div>

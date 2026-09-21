@@ -61,7 +61,12 @@ export function ProductCard({
           )}
           <div className="relative z-10">
             {purchasable ? (
-              <AddToCartButton item={toCartItem(product)} size="sm" fullWidth />
+              <AddToCartButton
+                item={toCartItem(product)}
+                size="sm"
+                fullWidth
+                className="px-3 whitespace-nowrap sm:px-5"
+              />
             ) : product.isBusinessOnly ? (
               <ButtonLink
                 href={`/contact?type=business&product=${product.slug}`}

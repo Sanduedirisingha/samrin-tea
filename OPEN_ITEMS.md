@@ -9,6 +9,11 @@ with a copper accent (`#C46A22`, amber `#E9A354`), cream/ivory light sections, N
 italic accent word, a sticky dark header, a glowing orb, a pinned horizontal "making" strip, a pinned brewing sequence
 where the orb warms from green to amber, and a shop with a left filter sidebar. Decisions to confirm:
 
+- **Light and dark mode.** Every section (hero included) follows a theme switch in the header; see the README. The default is dark unless the device asks for light,
+  so the design is unchanged for most first-time visitors. The header logo is larger (64 px) and follows the theme.
+- **Phones (< 768 px):** text, buttons, chips and images are centred, and the two smallest text sizes are slightly larger. Forms, accordions, the product details
+  table and the privacy policy stay left-aligned on purpose because centred forms and long legal text are hard to use.
+- **Step 5 photo still missing.** The tea-and-book photo sent for "Filter and enjoy" did not reach the project folder, so that step still shows the orb.
 - **This departs from the brand guide** (green / cream / **gold** family; CTAs in forest green). Copper replaces gold and the
   primary CTA on dark sections is copper. Burgundy is still used only for the Strong range. Tokens are all in
   `src/app/globals.css` if you want to move back toward gold.

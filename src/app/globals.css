@@ -232,3 +232,32 @@
     padding-inline: 2rem;
   }
 }
+
+/*
+ * Phones (< 768 px): everything is centred and the smallest text is a little larger.
+ * Forms, accordions and long-form legal text stay left-aligned for readability.
+ */
+@media (max-width: 767px) {
+  main,
+  footer {
+    text-align: center;
+  }
+  main form,
+  main details,
+  main .keep-left,
+  footer .keep-left {
+    text-align: left;
+  }
+  main .flex-wrap,
+  footer .flex-wrap {
+    justify-content: center;
+  }
+  .text-xs {
+    font-size: 0.8125rem;
+    line-height: 1.25rem;
+  }
+  .text-sm {
+    font-size: 0.9375rem;
+    line-height: 1.45rem;
+  }
+}

@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function PrivacyPolicyPage() {
   return (
-    <article className="container-prose py-16 sm:py-24">
+    <article className="container-prose keep-left py-16 sm:py-24">
       <p className="text-gold-ink text-xs font-semibold tracking-[0.2em] uppercase">Legal</p>
       <h1 className="text-heading mt-4 text-4xl sm:text-5xl">Privacy policy</h1>
       <p className="text-muted mt-4">Last updated: {PRIVACY_LAST_UPDATED}</p>

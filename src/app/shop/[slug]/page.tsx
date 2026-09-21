@@ -147,7 +147,7 @@ export default async function ProductPage({ params }: PageProps<"/shop/[slug]">)
               <h2 id="details-heading" className="text-heading text-2xl">
                 Product details
               </h2>
-              <dl className="divide-line border-line mt-4 divide-y border-y">
+              <dl className="divide-line border-line keep-left mt-4 divide-y border-y">
                 {product.details.map((d) => (
                   <div
                     key={d.label}
