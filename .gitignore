@@ -1,0 +1,29 @@
+# dependencies
+/node_modules
+.pnp
+.pnp.*
+
+# next.js
+/.next/
+/out/
+next-env.d.ts
+*.tsbuildinfo
+
+# env — only the example is tracked
+.env*
+!.env.example
+
+# local dev database (embedded Postgres, see `npm run db:local`)
+/.local-pg/
+
+# client source files (large binaries) — keep locally, not in git
+/reference/*
+!/reference/README.md
+
+# os / editor
+.DS_Store
+Thumbs.db
+*.pem
+npm-debug.log*
+.vscode/
+.idea/

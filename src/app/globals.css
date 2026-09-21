@@ -1,0 +1,151 @@
+@import "tailwindcss";
+
+/* SAMRIN design tokens — colours come from the Basic Brand & Digital Use Guide. */
+@theme {
+  --color-forest: #063d24;
+  --color-deep: #042810;
+  --color-cream: #f6f0cd;
+  --color-ivory: #fbf8e7;
+  --color-gold: #c9a43b;
+  --color-champagne: #e3d39a;
+  --color-leaf: #9cbd32;
+  --color-strong: #8f1628;
+
+  /* Derived (all AA on cream/ivory unless noted) */
+  --color-muted: #4b5f52; /* secondary text */
+  --color-line: #d9cf9c; /* hairline borders on cream */
+  --color-gold-ink: #7a5f0f; /* gold that is safe to use for small text on cream */
+  --color-strong-soft: #f3dfe2; /* tint for Strong chips */
+  --color-forest-soft: #dfe9d3; /* tint for BOPF chips */
+  --color-error: #b3261e;
+  --color-success: #1e6b3a;
+
+  --font-serif: var(--font-newsreader), "Newsreader", Georgia, "Times New Roman", serif;
+  --font-sans:
+    var(--font-instrument), "Instrument Sans", var(--font-sinhala), var(--font-tamil), system-ui,
+    -apple-system, "Segoe UI", sans-serif;
+
+  --shadow-card: 0 1px 0 rgb(4 40 16 / 0.04), 0 8px 24px -12px rgb(4 40 16 / 0.18);
+  --breakpoint-xs: 26rem;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    background: var(--color-cream);
+    color: var(--color-deep);
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-serif);
+    font-weight: 500;
+    line-height: 1.12;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+  }
+  p {
+    text-wrap: pretty;
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-forest);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+  .on-dark :focus-visible,
+  .on-dark:focus-visible {
+    outline-color: var(--color-champagne);
+  }
+  ::selection {
+    background: var(--color-champagne);
+    color: var(--color-deep);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+    }
+  }
+}
+
+@layer components {
+  /* Editorial italic accent word inside serif headings */
+  .accent {
+    font-style: italic;
+    font-weight: 400;
+  }
+
+  /* Gentle reveal-on-scroll — progressive enhancement, no JS, no scroll-jacking */
+  @media (prefers-reduced-motion: no-preference) {
+    @supports (animation-timeline: view()) {
+      .reveal {
+        animation: reveal-up linear both;
+        animation-timeline: view();
+        animation-range: entry 0% entry 35%;
+      }
+    }
+    .fade-up {
+      animation: reveal-up 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+    }
+  }
+  @keyframes reveal-up {
+    from {
+      opacity: 0;
+      transform: translateY(18px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  .skeleton {
+    background: linear-gradient(
+      90deg,
+      var(--color-ivory),
+      var(--color-champagne),
+      var(--color-ivory)
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.6s linear infinite;
+  }
+  @keyframes shimmer {
+    to {
+      background-position: -200% 0;
+    }
+  }
+}
+
+@utility container-page {
+  width: 100%;
+  max-width: 76rem;
+  margin-inline: auto;
+  padding-inline: 1rem;
+  @media (min-width: 40rem) {
+    padding-inline: 2rem;
+  }
+}
+@utility container-prose {
+  width: 100%;
+  max-width: 46rem;
+  margin-inline: auto;
+  padding-inline: 1rem;
+  @media (min-width: 40rem) {
+    padding-inline: 2rem;
+  }
+}

@@ -1,0 +1,6 @@
+.next
+node_modules
+drizzle/meta
+reference
+public
+package-lock.json
