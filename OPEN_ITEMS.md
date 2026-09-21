@@ -97,7 +97,7 @@ where the orb warms from green to amber, and a shop with a left filter sidebar. 
 - **Order "What happens next"** steps on the confirmation page and the contact-form success messages are
   assumed wording; no response times are promised. Please review.
 - **Contact details.** Hotline +94 71 77 45 777 and website are from the pack. Email and WhatsApp are not
-  confirmed → hidden until `NEXT_PUBLIC_CONTACT_EMAIL` / `NEXT_PUBLIC_WHATSAPP_NUMBER` are set. No opening hours,
+  confirmed → hidden (including the floating "Chat with us" WhatsApp button) until `NEXT_PUBLIC_CONTACT_EMAIL` / `NEXT_PUBLIC_WHATSAPP_NUMBER` are set. No opening hours,
   reply times, map or street-level factory address are shown (only "Nakiyadeniya, Galle district").
 - **Factory-visit copy** uses "planned from November 2026" exactly as documented.
 - **Business supply.** No minimum order quantity or pricing is stated; enquiries go to the `inquiries` table.

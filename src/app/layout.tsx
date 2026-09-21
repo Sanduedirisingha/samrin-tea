@@ -2,11 +2,13 @@ import type { Metadata, Viewport } from "next";
 import { Instrument_Sans, Newsreader, Noto_Sans_Sinhala, Noto_Sans_Tamil } from "next/font/google";
 import { CartProvider } from "@/components/cart/cart-provider";
 import { ToastProvider } from "@/components/cart/toast";
+import { ChatButton } from "@/components/layout/chat-button";
 import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
 import { SiteShell } from "@/components/layout/site-shell";
 import { JsonLd } from "@/components/seo/json-ld";
 import { getCatalog } from "@/lib/data/products";
+import { getStoreSettings } from "@/lib/data/settings";
 import { toCartItem } from "@/lib/product-utils";
 import { siteConfig } from "@/lib/site-config";
 import "./globals.css";
@@ -82,6 +84,7 @@ const organizationJsonLd = {
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   // The 5-item catalogue is small; the cart resolves names and prices from it locally.
   const catalog = (await getCatalog()).map(toCartItem);
+  const { whatsappNumber } = await getStoreSettings();
 
   return (
     <html
@@ -96,7 +99,11 @@ export default async function RootLayout({ children }: { children: React.ReactNo
       <body className="flex min-h-dvh flex-col">
         <ToastProvider>
           <CartProvider catalog={catalog}>
-            <SiteShell header={<Header />} footer={<Footer />}>
+            <SiteShell
+              header={<Header />}
+              footer={<Footer />}
+              chat={<ChatButton whatsappNumber={whatsappNumber} />}
+            >
               {children}
             </SiteShell>
           </CartProvider>

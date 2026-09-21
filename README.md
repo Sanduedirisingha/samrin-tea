@@ -23,15 +23,15 @@ items that need client confirmation.
 cp .env.example .env.local
 ```
 
-| Variable                      | Purpose                                                                          |
-| ----------------------------- | -------------------------------------------------------------------------------- |
-| `DATABASE_URL`                | Neon pooled connection string (required)                                         |
-| `NEXT_PUBLIC_SITE_URL`        | Canonical URL for metadata/sitemap (default `http://localhost:3000`)             |
-| `NEXT_PUBLIC_CONTACT_EMAIL`   | Optional. Contact row is hidden when empty                                       |
-| `NEXT_PUBLIC_WHATSAPP_NUMBER` | Optional, digits with country code. Row hidden when empty                        |
-| `DELIVERY_FEE_LKR`            | Optional, e.g. `350`. Empty = no fee charged, "confirmed by our team"            |
-| `PAYMENT_PROVIDER`            | Payment provider id, default `manual`                                            |
-| `FORM_SECRET`                 | Optional secret for anti-spam form tokens (defaults to a hash of `DATABASE_URL`) |
+| Variable                      | Purpose                                                                                                |
+| ----------------------------- | ------------------------------------------------------------------------------------------------------ |
+| `DATABASE_URL`                | Neon pooled connection string (required)                                                               |
+| `NEXT_PUBLIC_SITE_URL`        | Canonical URL for metadata/sitemap (default `http://localhost:3000`)                                   |
+| `NEXT_PUBLIC_CONTACT_EMAIL`   | Optional. Contact row is hidden when empty                                                             |
+| `NEXT_PUBLIC_WHATSAPP_NUMBER` | Optional, digits with country code. Contact row and the floating "Chat with us" button hide when empty |
+| `DELIVERY_FEE_LKR`            | Optional, e.g. `350`. Empty = no fee charged, "confirmed by our team"                                  |
+| `PAYMENT_PROVIDER`            | Payment provider id, default `manual`                                                                  |
+| `FORM_SECRET`                 | Optional secret for anti-spam form tokens (defaults to a hash of `DATABASE_URL`)                       |
 
 Missing or malformed values produce a clear developer error (`src/lib/env.ts`).
 

@@ -11,10 +11,12 @@ import type { ReactNode } from "react";
 export function SiteShell({
   header,
   footer,
+  chat,
   children,
 }: {
   header: ReactNode;
   footer: ReactNode;
+  chat?: ReactNode;
   children: ReactNode;
 }) {
   const pathname = usePathname();
@@ -32,6 +34,7 @@ export function SiteShell({
         {children}
       </main>
       {footer}
+      {chat}
     </>
   );
 }
