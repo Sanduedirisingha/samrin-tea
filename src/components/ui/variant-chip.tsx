@@ -15,10 +15,10 @@ export function VariantChip({
     range === "strong"
       ? onDark
         ? "bg-strong text-ivory"
-        : "bg-strong-soft text-strong"
+        : "bg-strong-soft text-strong-ink"
       : onDark
         ? "bg-forest text-ivory ring-1 ring-champagne/50"
-        : "bg-forest-soft text-forest";
+        : "bg-forest-soft text-heading";
   return (
     <span
       className={cn(

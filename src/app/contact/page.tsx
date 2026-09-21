@@ -48,7 +48,7 @@ export default async function ContactPage({ searchParams }: PageProps<"/contact"
       <div className="container-page grid gap-14 lg:grid-cols-[1fr_1.25fr] lg:gap-20">
         <div className="space-y-10">
           <section aria-labelledby="reach-heading">
-            <h2 id="reach-heading" className="text-forest text-2xl">
+            <h2 id="reach-heading" className="text-heading text-2xl">
               Reach us
             </h2>
             <ul className="mt-5 space-y-4">
@@ -58,7 +58,7 @@ export default async function ContactPage({ searchParams }: PageProps<"/contact"
                   <p className="text-muted text-sm">Consumer care</p>
                   <a
                     href={siteConfig.hotline.href}
-                    className="text-forest font-serif text-2xl hover:underline"
+                    className="text-heading font-serif text-2xl hover:underline"
                   >
                     {siteConfig.hotline.display}
                   </a>
@@ -70,7 +70,7 @@ export default async function ContactPage({ searchParams }: PageProps<"/contact"
                   <p className="text-muted text-sm">Website</p>
                   <a
                     href={siteConfig.website.href}
-                    className="text-forest font-medium hover:underline"
+                    className="text-heading font-medium hover:underline"
                   >
                     {siteConfig.website.display}
                   </a>
@@ -83,7 +83,7 @@ export default async function ContactPage({ searchParams }: PageProps<"/contact"
                     <p className="text-muted text-sm">Email</p>
                     <a
                       href={`mailto:${siteConfig.email}`}
-                      className="text-forest font-medium hover:underline"
+                      className="text-heading font-medium hover:underline"
                     >
                       {siteConfig.email}
                     </a>
@@ -97,7 +97,7 @@ export default async function ContactPage({ searchParams }: PageProps<"/contact"
                     <p className="text-muted text-sm">WhatsApp</p>
                     <a
                       href={`https://wa.me/${siteConfig.whatsapp}`}
-                      className="text-forest font-medium hover:underline"
+                      className="text-heading font-medium hover:underline"
                     >
                       Chat with us
                     </a>
@@ -108,7 +108,7 @@ export default async function ContactPage({ searchParams }: PageProps<"/contact"
           </section>
 
           <section aria-labelledby="where-heading">
-            <h2 id="where-heading" className="text-forest text-2xl">
+            <h2 id="where-heading" className="text-heading text-2xl">
               Where we are
             </h2>
             <address className="mt-5 space-y-6 not-italic">
@@ -134,7 +134,7 @@ export default async function ContactPage({ searchParams }: PageProps<"/contact"
           <h2 id="form-heading" className="sr-only">
             Send us a message
           </h2>
-          <div className="border-line bg-ivory rounded-2xl border p-6 sm:p-9">
+          <div className="border-line bg-surface-2 rounded-2xl border p-6 sm:p-9">
             <ContactForm
               key={`${initialType}-${match?.slug ?? ""}`}
               initialType={initialType}
@@ -146,7 +146,7 @@ export default async function ContactPage({ searchParams }: PageProps<"/contact"
       </div>
 
       <section aria-labelledby="faq-heading" className="container-page mt-24">
-        <h2 id="faq-heading" className="text-forest text-3xl">
+        <h2 id="faq-heading" className="text-heading text-3xl">
           Questions we expect
         </h2>
         <div className="mt-8 max-w-3xl">

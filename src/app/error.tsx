@@ -20,12 +20,12 @@ export default function ErrorPage({
       <p className="text-gold-ink text-xs font-semibold tracking-[0.2em] uppercase">
         Something went wrong
       </p>
-      <h1 className="text-forest mt-4 text-4xl sm:text-5xl">
+      <h1 className="text-heading mt-4 text-4xl sm:text-5xl">
         We couldn&apos;t <em className="accent">brew that page.</em>
       </h1>
       <p className="text-muted mx-auto mt-6 max-w-md text-lg">
         Please try again. If it keeps happening, call us on{" "}
-        <a href={siteConfig.hotline.href} className="text-forest font-medium underline">
+        <a href={siteConfig.hotline.href} className="text-heading font-medium underline">
           {siteConfig.hotline.display}
         </a>
         .

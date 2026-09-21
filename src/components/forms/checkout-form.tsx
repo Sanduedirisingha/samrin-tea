@@ -105,7 +105,7 @@ export function CheckoutForm({
         )}
 
         <fieldset className="space-y-5">
-          <legend className="text-forest font-serif text-2xl">Contact</legend>
+          <legend className="text-heading font-serif text-2xl">Contact</legend>
           <Field label="Full name" name="fullName" error={errors.fullName} required>
             {(p) => (
               <input
@@ -150,7 +150,7 @@ export function CheckoutForm({
         </fieldset>
 
         <fieldset className="space-y-5">
-          <legend className="text-forest font-serif text-2xl">Delivery address</legend>
+          <legend className="text-heading font-serif text-2xl">Delivery address</legend>
           <Field label="Address line 1" name="addressLine1" error={errors.addressLine1} required>
             {(p) => (
               <input
@@ -225,13 +225,13 @@ export function CheckoutForm({
         </fieldset>
 
         <section aria-labelledby="payment-heading" className="space-y-4">
-          <h2 id="payment-heading" className="text-forest font-serif text-2xl">
+          <h2 id="payment-heading" className="text-heading font-serif text-2xl">
             Payment
           </h2>
-          <div className="border-gold/60 bg-ivory flex gap-4 rounded-xl border p-5">
-            <ShieldCheck aria-hidden className="text-forest mt-0.5 size-6 shrink-0" />
+          <div className="border-gold/60 bg-surface-2 flex gap-4 rounded-xl border p-5">
+            <ShieldCheck aria-hidden className="text-heading mt-0.5 size-6 shrink-0" />
             <div>
-              <p className="text-forest font-medium">{payment.label}</p>
+              <p className="text-heading font-medium">{payment.label}</p>
               <p className="text-muted mt-1 text-sm">{payment.description}</p>
             </div>
           </div>
@@ -240,19 +240,19 @@ export function CheckoutForm({
 
       <aside
         aria-label="Order summary"
-        className="border-line bg-ivory rounded-2xl border p-6 lg:sticky lg:top-28"
+        className="border-line bg-surface-2 rounded-2xl border p-6 lg:sticky lg:top-32"
       >
-        <h2 className="text-forest text-2xl">Order summary</h2>
+        <h2 className="text-heading text-2xl">Order summary</h2>
         <ul className="divide-line mt-5 divide-y">
           {buyable.map(({ productId, qty, item, lineTotal }) => (
             <li key={productId} className="flex gap-3 py-3">
-              <div className="bg-cream relative size-16 shrink-0 overflow-hidden rounded-md">
+              <div className="bg-surface relative size-16 shrink-0 overflow-hidden rounded-md">
                 {item.image && (
                   <Image src={item.image.src} alt="" fill sizes="64px" className="object-contain" />
                 )}
               </div>
               <div className="min-w-0 flex-1 text-sm">
-                <p className="text-forest font-medium">{item.name}</p>
+                <p className="text-heading font-medium">{item.name}</p>
                 <p className="text-muted">Qty {qty}</p>
               </div>
               <p className="text-sm font-medium whitespace-nowrap">{formatLkr(lineTotal)}</p>

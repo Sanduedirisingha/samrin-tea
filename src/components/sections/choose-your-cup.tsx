@@ -37,7 +37,7 @@ export function ChooseYourCup({
     },
   ];
   return (
-    <section aria-labelledby="choose-heading" className="bg-cream py-24 sm:py-28">
+    <section aria-labelledby="choose-heading" className="bg-surface py-24 sm:py-28">
       <div className="container-page">
         <SectionHeading
           eyebrow="04 — Choose your cup"

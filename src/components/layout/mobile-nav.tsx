@@ -24,7 +24,7 @@ export function MobileNav() {
         aria-controls="mobile-menu"
         aria-label={open ? "Close menu" : "Open menu"}
         onClick={() => setOpen((v) => !v)}
-        className="text-paper hover:bg-paper/10 grid size-11 place-items-center rounded-full transition-colors"
+        className="text-ink hover:bg-surface-3 grid size-11 place-items-center rounded-full transition-colors"
       >
         {open ? <X aria-hidden className="size-6" /> : <Menu aria-hidden className="size-6" />}
       </button>
@@ -33,31 +33,31 @@ export function MobileNav() {
         id="mobile-menu"
         aria-label="Mobile"
         hidden={!open}
-        className="on-dark bg-deep border-paper/10 absolute inset-x-0 top-full border-b shadow-[0_18px_30px_-18px_rgb(0_0_0/0.6)]"
+        className="bg-surface border-line absolute inset-x-0 top-full border-b shadow-[0_18px_30px_-18px_rgb(0_0_0/0.6)]"
       >
         <ul className="container-page py-3">
           {primaryNav.map((item) => (
-            <li key={item.href} className="border-paper/10 border-b">
+            <li key={item.href} className="border-line border-b">
               <Link
                 href={item.href}
                 onClick={() => setOpen(false)}
-                className="text-paper flex min-h-14 items-center font-serif text-2xl"
+                className="text-ink flex min-h-14 items-center font-serif text-2xl"
               >
                 {item.label}
               </Link>
             </li>
           ))}
           <li className="flex flex-wrap items-center justify-between gap-3 py-4">
-            <span className="text-paper/75 text-sm">
+            <span className="text-ink/75 text-sm">
               Consumer care{" "}
-              <a href={siteConfig.hotline.href} className="text-champagne font-medium">
+              <a href={siteConfig.hotline.href} className="text-gold-ink font-medium">
                 {siteConfig.hotline.display}
               </a>
             </span>
             <Link
               href="/contact?type=business"
               onClick={() => setOpen(false)}
-              className="bg-gold text-deep inline-flex min-h-11 items-center rounded-full px-5 text-sm font-medium"
+              className="bg-gold text-on-accent inline-flex min-h-11 items-center rounded-full px-5 text-sm font-medium"
             >
               Business supply
             </Link>

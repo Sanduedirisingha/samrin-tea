@@ -21,7 +21,7 @@ export function BusinessCard() {
         <ButtonLink href="/contact?type=business" variant="on-dark" size="lg">
           Talk to Samrin
         </ButtonLink>
-        <ButtonLink href="/shop/samrin-strong-100-tea-bags" variant="secondary-on-dark" size="lg">
+        <ButtonLink href="/shop/samrin-strong-100-tea-bags" variant="panel-outline" size="lg">
           See the catering pack
         </ButtonLink>
       </div>

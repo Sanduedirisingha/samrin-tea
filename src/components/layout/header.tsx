@@ -4,14 +4,15 @@ import { ButtonLink } from "@/components/ui/button";
 import { Logo } from "@/components/ui/logo";
 import { MobileNav } from "./mobile-nav";
 import { primaryNav } from "./nav-links";
+import { ThemeToggle } from "./theme-toggle";
 
-/** Dark sticky bar from the homepage design; the approved logo (reversed) replaces the typed wordmark. */
+/** Sticky bar in both themes; the approved logo follows the theme (full colour / reversed). */
 export function Header() {
   return (
-    <header className="on-dark bg-deep/90 border-paper/10 sticky top-0 z-40 border-b backdrop-blur-md">
-      <div className="container-page flex h-16 items-center justify-between gap-4">
+    <header className="bg-surface/90 border-line sticky top-0 z-40 border-b backdrop-blur-md">
+      <div className="container-page flex h-20 items-center justify-between gap-4">
         <Link href="/" aria-label="SAMRIN Tea — home" className="shrink-0">
-          <Logo variant="white" className="h-11" priority />
+          <Logo className="h-16" priority />
         </Link>
 
         <nav aria-label="Primary" className="hidden lg:block">
@@ -20,7 +21,7 @@ export function Header() {
               <li key={item.href}>
                 <Link
                   href={item.href}
-                  className="text-paper/85 hover:text-champagne inline-flex min-h-11 items-center px-3 text-sm font-medium transition-colors"
+                  className="text-ink/85 hover:text-gold-ink inline-flex min-h-11 items-center px-3 text-sm font-medium transition-colors"
                 >
                   {item.label}
                 </Link>
@@ -29,7 +30,8 @@ export function Header() {
           </ul>
         </nav>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-1 sm:gap-2">
+          <ThemeToggle />
           <CartLink />
           <ButtonLink
             href="/contact?type=business"

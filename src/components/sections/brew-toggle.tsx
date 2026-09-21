@@ -27,7 +27,7 @@ export function BrewToggle() {
         role="tablist"
         aria-label="Brewing method"
         onKeyDown={onKey}
-        className="border-line bg-ivory inline-flex rounded-full border p-1"
+        className="border-line bg-surface-2 inline-flex rounded-full border p-1"
       >
         {tabs.map((t) => (
           <button
@@ -41,7 +41,7 @@ export function BrewToggle() {
             onClick={() => setActive(t.key)}
             className={cn(
               "min-h-11 rounded-full px-6 text-sm font-medium transition-colors",
-              active === t.key ? "bg-forest text-ivory" : "text-forest hover:bg-sand",
+              active === t.key ? "bg-btn text-btn-ink" : "text-heading hover:bg-surface-3",
             )}
           >
             {t.label}

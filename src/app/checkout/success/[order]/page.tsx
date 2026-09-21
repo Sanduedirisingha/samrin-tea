@@ -31,25 +31,25 @@ export default async function OrderSuccessPage({ params }: PageProps<"/checkout/
     <div className="container-prose py-16 sm:py-24">
       <ClearCart />
       <div className="text-center">
-        <CheckCircle2 aria-hidden className="text-forest mx-auto size-14" strokeWidth={1.4} />
+        <CheckCircle2 aria-hidden className="text-heading mx-auto size-14" strokeWidth={1.4} />
         <p className="text-gold-ink mt-6 text-xs font-semibold tracking-[0.2em] uppercase">
           Thank you
         </p>
-        <h1 className="text-forest mt-3 text-4xl sm:text-5xl">
+        <h1 className="text-heading mt-3 text-4xl sm:text-5xl">
           Your order is <em className="accent">placed.</em>
         </h1>
         <p className="text-muted mt-5 text-lg">
           Your order number is{" "}
-          <strong className="text-deep font-semibold">{order.orderNumber}</strong>. Please keep it
+          <strong className="text-ink font-semibold">{order.orderNumber}</strong>. Please keep it
           for reference.
         </p>
       </div>
 
       <section
         aria-labelledby="summary-heading"
-        className="border-line bg-ivory mt-12 rounded-2xl border p-6 sm:p-8"
+        className="border-line bg-surface-2 mt-12 rounded-2xl border p-6 sm:p-8"
       >
-        <h2 id="summary-heading" className="text-forest text-2xl">
+        <h2 id="summary-heading" className="text-heading text-2xl">
           Order summary
         </h2>
         <ul className="divide-line mt-4 divide-y">
@@ -84,13 +84,13 @@ export default async function OrderSuccessPage({ params }: PageProps<"/checkout/
       </section>
 
       <section aria-labelledby="next-heading" className="mt-12">
-        <h2 id="next-heading" className="text-forest text-2xl">
+        <h2 id="next-heading" className="text-heading text-2xl">
           What happens next
         </h2>
         <ol className="mt-5 space-y-4">
           {steps.map((step, i) => (
             <li key={step} className="flex gap-4">
-              <span className="bg-forest text-ivory grid size-8 shrink-0 place-items-center rounded-full text-sm font-semibold">
+              <span className="bg-btn text-btn-ink grid size-8 shrink-0 place-items-center rounded-full text-sm font-semibold">
                 {i + 1}
               </span>
               <p className="text-muted pt-0.5">{step}</p>
@@ -99,7 +99,7 @@ export default async function OrderSuccessPage({ params }: PageProps<"/checkout/
         </ol>
         <p className="mt-6">
           Questions about your order? Call consumer care on{" "}
-          <a href={siteConfig.hotline.href} className="text-forest font-medium underline">
+          <a href={siteConfig.hotline.href} className="text-heading font-medium underline">
             {siteConfig.hotline.display}
           </a>{" "}
           and quote {order.orderNumber}.

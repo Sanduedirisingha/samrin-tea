@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+/* Theme switch: <html data-theme="light|dark">, set before paint by an inline script in layout.tsx. */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
 /*
  * SAMRIN design tokens — palette from the approved homepage design (dark green + copper,
  * cream sections). Burgundy (`strong`) still identifies the Strong range only.
@@ -16,6 +19,24 @@
   --color-champagne: #e9a354; /* amber accent on dark */
   --color-leaf: #9cbd32;
   --color-strong: #8f1628;
+
+  /*
+   * Semantic, theme-aware tokens. Components use these; the raw palette above stays constant
+   * for panels that look the same in both modes (burgundy/green cards, toast, business card).
+   * Light values here; dark overrides live in :root[data-theme="dark"] below.
+   */
+  --color-surface: #ede6d6; /* page */
+  --color-surface-alt: #f4efe3; /* alternate full-width band */
+  --color-surface-2: #fbf7ec; /* cards, inputs */
+  --color-surface-3: #e4dbc6; /* soft panels, hovers */
+  --color-ink: #0e1a14; /* body text */
+  --color-heading: #16281d; /* headings, links, outline buttons */
+  --color-btn: #16281d; /* primary button */
+  --color-btn-ink: #fbf7ec;
+  --color-on-accent: #0e1a14; /* text on copper */
+  --color-bopf: #16281d; /* Premium BOPF accents (top borders) */
+  --color-strong-ink: #8f1628; /* Strong chip text */
+  --color-focus: #16281d;
 
   /* Derived */
   --color-muted: #5e5140; /* secondary text on light */
@@ -36,14 +57,36 @@
   --breakpoint-xs: 26rem;
 }
 
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --color-surface: #0e1a14;
+  --color-surface-alt: #12241a;
+  --color-surface-2: #16281d;
+  --color-surface-3: #1f382a;
+  --color-ink: #f4efe3;
+  --color-heading: #f4efe3;
+  --color-btn: #c46a22;
+  --color-btn-ink: #0e1a14;
+  --color-bopf: #4a8a62;
+  --color-strong-ink: #f2a9b3;
+  --color-focus: #e9a354;
+  --color-muted: #a9b9a8;
+  --color-line: #2b4234;
+  --color-gold-ink: #e9a354; /* accent text: amber on dark, deep copper on light */
+  --color-strong-soft: #3b1a22;
+  --color-forest-soft: #1f382a;
+  --color-error: #f28b82;
+  --color-success: #7fd39a;
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;
     -webkit-text-size-adjust: 100%;
   }
   body {
-    background: var(--color-cream);
-    color: var(--color-deep);
+    background: var(--color-surface);
+    color: var(--color-ink);
     font-family: var(--font-sans);
     font-size: 1rem;
     line-height: 1.6;
@@ -60,7 +103,7 @@
     text-wrap: balance;
   }
   :focus-visible {
-    outline: 2px solid var(--color-forest);
+    outline: 2px solid var(--color-focus);
     outline-offset: 3px;
     border-radius: 2px;
   }
@@ -69,8 +112,8 @@
     outline-color: var(--color-champagne);
   }
   ::selection {
-    background: var(--color-champagne);
-    color: var(--color-deep);
+    background: var(--color-gold);
+    color: #0e1a14;
   }
   @media (prefers-reduced-motion: reduce) {
     html {
@@ -149,7 +192,7 @@
   .hatch {
     background-image: repeating-linear-gradient(
       -58deg,
-      rgb(244 239 227 / 0.05) 0 2px,
+      color-mix(in srgb, var(--color-ink) 6%, transparent) 0 2px,
       transparent 2px 14px
     );
   }

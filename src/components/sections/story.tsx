@@ -1,5 +1,6 @@
 import { Coffee, Factory, Mountain, type LucideIcon } from "lucide-react";
 import Link from "next/link";
+import { cn } from "@/lib/cn";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { hasSlot, SlotImage } from "@/components/ui/slot-image";
 import type { SlotId } from "@/content/site-images";
@@ -56,16 +57,15 @@ export function Story({
     <section
       id="story"
       aria-labelledby="story-heading"
-      className="on-dark text-paper scroll-mt-16 bg-[#0e1a14] py-24 sm:py-32"
+      className="text-ink bg-surface scroll-mt-20 py-24 sm:py-32"
     >
       <div className="container-page">
         <SectionHeading
           as={as}
-          onDark
           eyebrow={eyebrow}
           title={
             <span id="story-heading">
-              A new tea, <em className="accent text-champagne">told plainly.</em>
+              A new tea, <em className="accent text-gold-ink">told plainly.</em>
             </span>
           }
           intro="One region, one factory, and a cup strong enough to be worth talking about. Everything here is something we can stand behind."
@@ -76,17 +76,31 @@ export function Story({
             {tiles.map(({ slot, icon: Icon, label, caption }) => (
               <li
                 key={label}
-                className="hatch border-paper/10 relative flex aspect-[4/3] flex-col justify-between overflow-hidden rounded-2xl border bg-[#16281d] p-6"
+                className="hatch border-line bg-surface-2 relative flex aspect-[4/3] flex-col justify-between overflow-hidden rounded-2xl border p-6"
               >
                 <SlotImage slot={slot} sizes="(min-width: 768px) 33vw, 100vw" />
                 {hasSlot(slot) ? (
                   <span />
                 ) : (
-                  <Icon aria-hidden className="text-champagne relative size-9" strokeWidth={1.3} />
+                  <Icon aria-hidden className="text-gold-ink relative size-9" strokeWidth={1.3} />
                 )}
                 <div className="relative">
-                  <p className="text-sage text-xs tracking-[0.2em] uppercase">{label}</p>
-                  <p className="text-paper/90 mt-2 text-[0.95rem] leading-snug">{caption}</p>
+                  <p
+                    className={cn(
+                      "text-xs tracking-[0.2em] uppercase",
+                      hasSlot(slot) ? "text-paper/80" : "text-muted",
+                    )}
+                  >
+                    {label}
+                  </p>
+                  <p
+                    className={cn(
+                      "mt-2 text-[0.95rem] leading-snug",
+                      hasSlot(slot) ? "text-paper" : "text-ink/90",
+                    )}
+                  >
+                    {caption}
+                  </p>
                 </div>
               </li>
             ))}
@@ -99,9 +113,9 @@ export function Story({
           }
         >
           {cards.map((c) => (
-            <li key={c.title} className="border-paper/10 rounded-2xl border bg-[#16281d] p-7">
+            <li key={c.title} className="border-line bg-surface-2 rounded-2xl border p-7">
               <h3 className="font-serif text-2xl">{c.title}</h3>
-              <p className="text-paper/75 mt-3 leading-relaxed">{c.body}</p>
+              <p className="text-ink/75 mt-3 leading-relaxed">{c.body}</p>
             </li>
           ))}
         </ul>
@@ -110,7 +124,7 @@ export function Story({
           <p className="mt-10">
             <Link
               href="/about"
-              className="text-champagne font-medium underline underline-offset-4 hover:text-white"
+              className="text-gold-ink hover:text-heading font-medium underline underline-offset-4"
             >
               Read the full story →
             </Link>

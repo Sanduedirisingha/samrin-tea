@@ -32,21 +32,21 @@ const steps: { icon: LucideIcon; title: string; body: string }[] = [
   },
 ];
 
-const NAV = 64; // sticky header height in px
+const NAV = 80; // sticky header height in px
 
 function Card({ index, step }: { index: number; step: (typeof steps)[number] }) {
   const Icon = step.icon;
   return (
-    <li className="border-paper/10 w-[min(84vw,30rem)] shrink-0 snap-start rounded-3xl border bg-[#16281d] p-7 sm:p-9">
+    <li className="border-line bg-surface-2 w-[min(84vw,30rem)] shrink-0 snap-start rounded-3xl border p-7 sm:p-9">
       <div className="flex items-start justify-between">
         <span className="text-gold font-serif text-5xl">{String(index + 1).padStart(2, "0")}</span>
-        <Icon aria-hidden className="text-champagne size-7" strokeWidth={1.4} />
+        <Icon aria-hidden className="text-gold-ink size-7" strokeWidth={1.4} />
       </div>
-      <div className="hatch border-paper/10 relative mt-6 h-36 overflow-hidden rounded-xl border sm:h-44">
+      <div className="hatch border-line relative mt-6 h-36 overflow-hidden rounded-xl border sm:h-44">
         <SlotImage slot={`making${index + 1}` as SlotId} sizes="30rem" overlay={false} />
       </div>
       <h3 className="mt-6 font-serif text-2xl">{step.title}</h3>
-      <p className="text-paper/75 mt-2 text-[0.95rem] leading-relaxed">{step.body}</p>
+      <p className="text-ink/75 mt-2 text-[0.95rem] leading-relaxed">{step.body}</p>
     </li>
   );
 }
@@ -102,22 +102,21 @@ export function MakingTrack() {
       id="making"
       ref={section}
       aria-labelledby="making-heading"
-      className="on-dark text-paper scroll-mt-16 bg-[#0e1a14]"
+      className="text-ink bg-surface scroll-mt-20"
     >
       <div
         className={cn(
           pinned
-            ? "sticky top-16 flex h-[calc(100dvh-4rem)] flex-col justify-center overflow-hidden"
+            ? "sticky top-20 flex h-[calc(100dvh-5rem)] flex-col justify-center overflow-hidden"
             : "py-24",
         )}
       >
         <div className="container-page">
           <SectionHeading
-            onDark
             eyebrow="02 — The making"
             title={
               <span id="making-heading">
-                From withering to <em className="accent text-champagne">sealed pack.</em>
+                From withering to <em className="accent text-gold-ink">sealed pack.</em>
               </span>
             }
           />
@@ -140,7 +139,7 @@ export function MakingTrack() {
 
         {pinned && (
           <div className="container-page mt-10">
-            <div className="bg-paper/15 h-px w-full">
+            <div className="bg-line h-px w-full">
               <div ref={bar} className="bg-gold h-px origin-left scale-x-0" />
             </div>
           </div>

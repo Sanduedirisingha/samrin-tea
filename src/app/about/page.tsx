@@ -169,7 +169,7 @@ export default function AboutPage() {
         <p className="text-muted text-base">
           {siteConfig.mfNumber} · Packer registration {siteConfig.packerRegistration} · Consumer
           care{" "}
-          <a href={siteConfig.hotline.href} className="text-forest font-medium underline">
+          <a href={siteConfig.hotline.href} className="text-heading font-medium underline">
             {siteConfig.hotline.display}
           </a>
         </p>

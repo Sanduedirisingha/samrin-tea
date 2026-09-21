@@ -1,14 +1,13 @@
 import type { ReactNode } from "react";
 import { cn } from "@/lib/cn";
 
-/** Eyebrow + serif title (+ optional intro). Wrap an italic word in <em className="accent">. */
+/** Eyebrow + serif title (+ optional intro). Wrap an italic word in <em className="accent">. Theme-aware. */
 export function SectionHeading({
   eyebrow,
   title,
   intro,
   as: Tag = "h2",
   align = "left",
-  onDark,
   className,
 }: {
   eyebrow?: string;
@@ -16,7 +15,6 @@ export function SectionHeading({
   intro?: ReactNode;
   as?: "h1" | "h2" | "h3";
   align?: "left" | "center";
-  onDark?: boolean;
   className?: string;
 }) {
   return (
@@ -24,28 +22,18 @@ export function SectionHeading({
       {eyebrow && (
         <p
           className={cn(
-            "mb-4 flex items-center gap-3 text-xs font-semibold tracking-[0.2em] uppercase",
+            "text-gold-ink mb-4 flex items-center gap-3 text-xs font-semibold tracking-[0.2em] uppercase",
             align === "center" && "justify-center",
-            onDark ? "text-champagne" : "text-gold-ink",
           )}
         >
-          <span aria-hidden className={cn("h-px w-8", onDark ? "bg-gold" : "bg-gold")} />
+          <span aria-hidden className="bg-gold h-px w-8" />
           {eyebrow}
         </p>
       )}
-      <Tag
-        className={cn(
-          "text-[2rem] sm:text-4xl lg:text-5xl [&_em]:font-normal",
-          onDark ? "text-cream" : "text-forest",
-        )}
-      >
+      <Tag className="text-heading text-[2rem] sm:text-4xl lg:text-5xl [&_em]:font-normal">
         {title}
       </Tag>
-      {intro && (
-        <p className={cn("mt-5 text-lg leading-relaxed", onDark ? "text-cream/85" : "text-muted")}>
-          {intro}
-        </p>
-      )}
+      {intro && <p className="text-muted mt-5 text-lg leading-relaxed">{intro}</p>}
     </div>
   );
 }

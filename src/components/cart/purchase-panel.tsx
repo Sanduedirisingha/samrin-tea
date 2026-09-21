@@ -37,11 +37,11 @@ export function PurchasePanel({ item }: { item: CartCatalogItem }) {
       <div
         aria-hidden={!showBar}
         inert={!showBar}
-        className={`border-gold/40 bg-ivory/95 fixed inset-x-0 bottom-0 z-40 border-t px-4 py-3 shadow-[0_-8px_24px_-12px_rgb(4_40_16/0.25)] backdrop-blur transition-transform duration-300 lg:hidden ${showBar ? "translate-y-0" : "translate-y-full"}`}
+        className={`border-gold/40 bg-surface-2/95 fixed inset-x-0 bottom-0 z-40 border-t px-4 py-3 shadow-[0_-8px_24px_-12px_rgb(4_40_16/0.25)] backdrop-blur transition-transform duration-300 lg:hidden ${showBar ? "translate-y-0" : "translate-y-full"}`}
       >
         <div className="mx-auto flex max-w-xl items-center gap-3">
           <div className="min-w-0 flex-1">
-            <p className="text-forest truncate text-sm font-medium">{item.name}</p>
+            <p className="text-heading truncate text-sm font-medium">{item.name}</p>
             {item.priceLkr !== null && (
               <p className="text-muted text-sm">{formatLkr(item.priceLkr * qty)}</p>
             )}

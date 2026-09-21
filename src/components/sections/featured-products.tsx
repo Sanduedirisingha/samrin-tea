@@ -10,7 +10,7 @@ export function FeaturedProducts({ products }: { products: CatalogProduct[] }) {
     <section
       id="shop"
       aria-labelledby="featured-heading"
-      className="bg-ivory scroll-mt-16 py-24 sm:py-28"
+      className="bg-surface-2 scroll-mt-20 py-24 sm:py-28"
     >
       <div className="container-page">
         <div className="flex flex-wrap items-end justify-between gap-6">

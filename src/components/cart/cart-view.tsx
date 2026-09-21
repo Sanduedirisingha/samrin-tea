@@ -34,7 +34,7 @@ export function CartView() {
           >
             <Link
               href={productHref(item.slug)}
-              className="bg-ivory relative block aspect-[4/5] overflow-hidden rounded-lg"
+              className="bg-surface-2 relative block aspect-[4/5] overflow-hidden rounded-lg"
             >
               {item.image && (
                 <Image
@@ -51,7 +51,7 @@ export function CartView() {
                 <div>
                   <Link
                     href={productHref(item.slug)}
-                    className="text-forest font-serif text-lg leading-snug hover:underline"
+                    className="text-heading font-serif text-lg leading-snug hover:underline"
                   >
                     {item.name}
                   </Link>
@@ -98,9 +98,9 @@ export function CartView() {
 
       <aside
         aria-label="Order summary"
-        className="border-line bg-ivory rounded-2xl border p-6 lg:sticky lg:top-28"
+        className="border-line bg-surface-2 rounded-2xl border p-6 lg:sticky lg:top-32"
       >
-        <h2 className="text-forest text-2xl">Summary</h2>
+        <h2 className="text-heading text-2xl">Summary</h2>
         <dl className="mt-5 space-y-3 text-sm">
           <div className="flex justify-between">
             <dt className="text-muted">

@@ -4,23 +4,21 @@ import { Trilingual } from "@/components/ui/trilingual";
 import { siteConfig } from "@/lib/site-config";
 
 const linkClass =
-  "inline-flex min-h-8 items-center text-cream/85 underline-offset-4 transition-colors hover:text-white hover:underline";
+  "inline-flex min-h-8 items-center text-ink/85 underline-offset-4 transition-colors hover:text-heading hover:underline";
 
 export function Footer() {
   const { manufacturer, distributor } = siteConfig;
   return (
-    <footer className="on-dark bg-deep text-cream mt-24">
+    <footer className="bg-surface text-ink mt-24">
       <div className="container-page grid gap-12 py-16 md:grid-cols-[1.1fr_1fr_1fr]">
         <div>
-          <Logo variant="white" className="h-20" />
+          <Logo className="h-20" />
           <Trilingual className="mt-6" />
-          <p className="text-cream/85 mt-3 max-w-xs text-sm leading-relaxed">
-            {siteConfig.tagline}
-          </p>
+          <p className="text-ink/85 mt-3 max-w-xs text-sm leading-relaxed">{siteConfig.tagline}</p>
         </div>
 
         <nav aria-label="Footer">
-          <h2 className="text-champagne font-sans text-xs font-semibold tracking-[0.2em] uppercase">
+          <h2 className="text-gold-ink font-sans text-xs font-semibold tracking-[0.2em] uppercase">
             Explore
           </h2>
           <ul className="mt-4 space-y-1 text-[0.95rem]">
@@ -58,13 +56,13 @@ export function Footer() {
         </nav>
 
         <div>
-          <h2 className="text-champagne font-sans text-xs font-semibold tracking-[0.2em] uppercase">
+          <h2 className="text-gold-ink font-sans text-xs font-semibold tracking-[0.2em] uppercase">
             Consumer care
           </h2>
           <p className="mt-4">
             <a
               href={siteConfig.hotline.href}
-              className="font-serif text-2xl text-white underline-offset-4 hover:underline"
+              className="text-heading font-serif text-2xl underline-offset-4 hover:underline"
             >
               {siteConfig.hotline.display}
             </a>
@@ -74,13 +72,13 @@ export function Footer() {
               {siteConfig.website.display}
             </a>
           </p>
-          <address className="text-cream/85 mt-6 space-y-4 text-sm leading-relaxed not-italic">
+          <address className="text-ink/85 mt-6 space-y-4 text-sm leading-relaxed not-italic">
             <p>
-              <span className="text-cream block font-medium">Manufactured by</span>
+              <span className="text-ink block font-medium">Manufactured by</span>
               {manufacturer.name}, {manufacturer.address.join(", ")}
             </p>
             <p>
-              <span className="text-cream block font-medium">Distributed by</span>
+              <span className="text-ink block font-medium">Distributed by</span>
               {distributor.name}, {distributor.address.join(", ")}
             </p>
           </address>
@@ -88,7 +86,7 @@ export function Footer() {
       </div>
 
       <div className="border-gold/40 border-t">
-        <div className="container-page text-cream/75 flex flex-col gap-2 py-6 text-xs sm:flex-row sm:items-center sm:justify-between">
+        <div className="container-page text-ink/75 flex flex-col gap-2 py-6 text-xs sm:flex-row sm:items-center sm:justify-between">
           <p>
             © {new Date().getFullYear()} SAMRIN Tea · {siteConfig.mfNumber} · Packer registration{" "}
             {siteConfig.packerRegistration}

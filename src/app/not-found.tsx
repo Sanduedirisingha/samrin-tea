@@ -7,14 +7,14 @@ export const metadata: Metadata = { title: "Page not found", robots: { index: fa
 
 export default function NotFound() {
   return (
-    <section className="on-dark bg-deep text-cream relative isolate overflow-hidden py-28 text-center">
+    <section className="bg-surface text-ink relative isolate overflow-hidden py-28 text-center">
       <GoldCurves />
       <div className="container-prose relative">
         <Trilingual />
-        <h1 className="text-cream mt-6 text-5xl sm:text-6xl">
+        <h1 className="text-ink mt-6 text-5xl sm:text-6xl">
           This page has <em className="accent">wandered off.</em>
         </h1>
-        <p className="text-cream/85 mx-auto mt-6 max-w-md text-lg">
+        <p className="text-ink/85 mx-auto mt-6 max-w-md text-lg">
           The page you were looking for isn&apos;t here. Let&apos;s get you back to the tea.
         </p>
         <div className="mt-10 flex flex-wrap justify-center gap-3">

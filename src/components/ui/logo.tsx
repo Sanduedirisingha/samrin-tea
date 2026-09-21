@@ -10,17 +10,41 @@ const sources = {
 
 /**
  * The approved logo artwork. Never restyle it: size it with height only so the aspect ratio
- * (481:330) is preserved. Full colour on light/cream, "white" on forest green or dark photos.
+ * (481:330) is preserved. `auto` follows the theme: full colour in light mode, reversed (white)
+ * in dark mode. Fixed variants are for panels that look the same in both modes.
  */
 export function Logo({
-  variant = "color",
+  variant = "auto",
   className,
   priority,
 }: {
-  variant?: keyof typeof sources;
+  variant?: "auto" | keyof typeof sources;
   className?: string;
   priority?: boolean;
 }) {
+  if (variant === "auto") {
+    return (
+      <>
+        <Image
+          src={sources.color}
+          alt="SAMRIN Tea"
+          width={481}
+          height={330}
+          priority={priority}
+          unoptimized
+          className={cn("w-auto dark:hidden", className)}
+        />
+        <Image
+          src={sources.white}
+          alt="SAMRIN Tea"
+          width={481}
+          height={330}
+          unoptimized
+          className={cn("hidden w-auto dark:block", className)}
+        />
+      </>
+    );
+  }
   return (
     <Image
       src={sources[variant]}

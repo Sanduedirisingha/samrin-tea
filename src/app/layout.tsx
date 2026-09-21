@@ -55,6 +55,8 @@ export const metadata: Metadata = {
   twitter: { card: "summary_large_image" },
 };
 
+const themeScript = `(function(){try{var t=localStorage.getItem("samrin_theme");if(t!=="light"&&t!=="dark"){t=window.matchMedia("(prefers-color-scheme: light)").matches?"light":"dark"}document.documentElement.dataset.theme=t}catch(e){document.documentElement.dataset.theme="dark"}})();`;
+
 export const viewport: Viewport = {
   themeColor: "#063D24",
 };
@@ -83,8 +85,13 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   return (
     <html
       lang="en"
+      suppressHydrationWarning
       className={`${newsreader.variable} ${instrument.variable} ${sinhala.variable} ${tamil.variable}`}
     >
+      <head>
+        {/* Applies the saved (or device) theme before first paint so there is no flash. */}
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+      </head>
       <body className="flex min-h-dvh flex-col">
         <a
           href="#main"

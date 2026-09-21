@@ -12,8 +12,8 @@ function Chip({ href, active, children }: { href: string; active: boolean; child
       className={cn(
         "inline-flex min-h-11 items-center rounded-full border px-4 text-sm font-medium transition-colors",
         active
-          ? "border-forest bg-forest text-ivory"
-          : "border-line bg-ivory text-forest hover:border-forest",
+          ? "border-btn bg-btn text-btn-ink"
+          : "border-line bg-surface-2 text-heading hover:border-heading",
       )}
     >
       {children}

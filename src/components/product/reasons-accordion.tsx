@@ -14,7 +14,7 @@ export function ReasonsAccordion({ variant }: { variant: ReasonsVariant }) {
           <p>
             <Link
               href={reason.link.href}
-              className="text-forest hover:text-deep font-medium underline underline-offset-4"
+              className="text-heading hover:text-ink font-medium underline underline-offset-4"
             >
               {reason.link.label} →
             </Link>

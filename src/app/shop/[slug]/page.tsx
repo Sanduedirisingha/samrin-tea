@@ -72,18 +72,18 @@ export default async function ProductPage({ params }: PageProps<"/shop/[slug]">)
               </Link>
             </li>
             <li aria-hidden>/</li>
-            <li aria-current="page" className="text-deep">
+            <li aria-current="page" className="text-ink">
               {product.name}
             </li>
           </ol>
         </nav>
 
         <div className="mt-8 grid gap-10 lg:grid-cols-2 lg:gap-16">
-          <div className="lg:sticky lg:top-28 lg:self-start">
+          <div className="lg:sticky lg:top-32 lg:self-start">
             <div
               className={cn(
-                "border-line bg-ivory relative aspect-[4/5] overflow-hidden rounded-2xl border border-t-4",
-                isStrong ? "border-t-strong" : "border-t-forest",
+                "border-line bg-surface-2 relative aspect-[4/5] overflow-hidden rounded-2xl border border-t-4",
+                isStrong ? "border-t-strong" : "border-t-bopf",
               )}
             >
               {image && (
@@ -101,10 +101,10 @@ export default async function ProductPage({ params }: PageProps<"/shop/[slug]">)
 
           <div>
             <VariantChip range={product.range} />
-            <h1 className="text-forest mt-4 text-4xl sm:text-5xl">{product.name}</h1>
+            <h1 className="text-heading mt-4 text-4xl sm:text-5xl">{product.name}</h1>
             <p className="text-muted mt-3 font-serif text-xl italic">{product.tagline}</p>
 
-            <p className="text-deep mt-6 text-3xl font-medium">
+            <p className="text-ink mt-6 text-3xl font-medium">
               {product.priceLkr !== null
                 ? formatLkr(product.priceLkr)
                 : "Business pricing on request"}
@@ -123,7 +123,7 @@ export default async function ProductPage({ params }: PageProps<"/shop/[slug]">)
                   Request Business Pricing / Talk to Samrin
                 </ButtonLink>
               ) : (
-                <p className="border-line bg-ivory text-muted rounded-lg border px-4 py-3">
+                <p className="border-line bg-surface-2 text-muted rounded-lg border px-4 py-3">
                   This pack is currently unavailable.
                 </p>
               )}
@@ -133,18 +133,18 @@ export default async function ProductPage({ params }: PageProps<"/shop/[slug]">)
 
             <div
               className={cn(
-                "bg-ivory mt-8 rounded-xl border-l-4 p-6",
+                "bg-surface-2 mt-8 rounded-xl border-l-4 p-6",
                 isStrong ? "border-strong" : "border-gold",
               )}
             >
               <h2 className="text-gold-ink font-sans text-xs font-semibold tracking-[0.2em] uppercase">
                 Choose this if
               </h2>
-              <p className="text-forest mt-2 font-serif text-xl">{product.chooseThisIf}</p>
+              <p className="text-heading mt-2 font-serif text-xl">{product.chooseThisIf}</p>
             </div>
 
             <section aria-labelledby="details-heading" className="mt-10">
-              <h2 id="details-heading" className="text-forest text-2xl">
+              <h2 id="details-heading" className="text-heading text-2xl">
                 Product details
               </h2>
               <dl className="divide-line border-line mt-4 divide-y border-y">
@@ -197,8 +197,8 @@ export default async function ProductPage({ params }: PageProps<"/shop/[slug]">)
       </section>
 
       <section aria-labelledby="unsure-heading" className="container-page mt-20">
-        <div className="border-gold/50 bg-ivory rounded-2xl border p-8 sm:p-12">
-          <h2 id="unsure-heading" className="text-forest text-3xl">
+        <div className="border-gold/50 bg-surface-2 rounded-2xl border p-8 sm:p-12">
+          <h2 id="unsure-heading" className="text-heading text-3xl">
             Still unsure?
           </h2>
           <p className="text-muted mt-4 max-w-2xl text-lg">{sample.body}</p>
@@ -209,7 +209,7 @@ export default async function ProductPage({ params }: PageProps<"/shop/[slug]">)
       </section>
 
       <section aria-labelledby="related-heading" className="container-page mt-20">
-        <h2 id="related-heading" className="text-forest text-3xl">
+        <h2 id="related-heading" className="text-heading text-3xl">
           You may also like
         </h2>
         <ul className="mt-8 grid grid-cols-2 gap-x-4 gap-y-6 sm:gap-x-6 lg:grid-cols-3">

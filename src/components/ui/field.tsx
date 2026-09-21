@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 import { cn } from "@/lib/cn";
 
 export const inputClass =
-  "block w-full min-h-11 rounded-lg border border-line bg-ivory px-4 py-2.5 text-base text-deep placeholder:text-muted/70 transition-colors focus-visible:border-forest aria-[invalid=true]:border-error";
+  "block w-full min-h-11 rounded-lg border border-line bg-surface-2 px-4 py-2.5 text-base text-ink placeholder:text-muted/70 transition-colors focus-visible:border-heading aria-[invalid=true]:border-error";
 
 type ControlProps = {
   id: string;
@@ -39,7 +39,7 @@ export function Field({
   const describedBy = [hint && `${id}-hint`, error && `${id}-error`].filter(Boolean).join(" ");
   return (
     <div className={className}>
-      <label htmlFor={id} className="text-deep mb-1.5 block text-sm font-medium">
+      <label htmlFor={id} className="text-ink mb-1.5 block text-sm font-medium">
         {label}
         {optional && <span className="text-muted ml-1.5 font-normal">(optional)</span>}
       </label>

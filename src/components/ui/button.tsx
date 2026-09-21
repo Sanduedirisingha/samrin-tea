@@ -2,17 +2,18 @@ import Link from "next/link";
 import type { ComponentProps } from "react";
 import { cn } from "@/lib/cn";
 
-type Variant = "primary" | "secondary" | "on-dark" | "secondary-on-dark";
+type Variant = "primary" | "secondary" | "on-dark" | "secondary-on-dark" | "panel-outline";
 type Size = "sm" | "md" | "lg";
 
 type StyleOptions = { variant?: Variant; size?: Size; fullWidth?: boolean };
 
 const variants: Record<Variant, string> = {
-  primary: "bg-forest text-ivory hover:bg-moss",
-  secondary: "border border-forest text-forest hover:bg-forest hover:text-ivory",
-  "on-dark": "on-dark bg-gold text-deep hover:bg-champagne",
-  "secondary-on-dark":
-    "on-dark border border-paper/30 text-paper hover:border-paper/70 hover:bg-paper/5",
+  /** Outline button for panels that stay dark in both themes (business card). */
+  "panel-outline": "border border-paper/30 text-paper hover:border-paper/70 hover:bg-paper/5",
+  primary: "bg-btn text-btn-ink hover:bg-moss dark:hover:bg-champagne",
+  secondary: "border border-heading text-heading hover:bg-heading hover:text-surface",
+  "on-dark": "bg-gold text-on-accent hover:bg-champagne",
+  "secondary-on-dark": "border border-ink/30 text-ink hover:border-ink/60 hover:bg-ink/5",
 };
 
 const sizes: Record<Size, string> = {

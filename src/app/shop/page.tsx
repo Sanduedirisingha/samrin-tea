@@ -33,7 +33,7 @@ export default async function ShopPage({ searchParams }: PageProps<"/shop">) {
       />
 
       <div className="container-page grid items-start gap-10 lg:grid-cols-[15.5rem_1fr]">
-        <aside className="border-line bg-ivory rounded-2xl border p-5 lg:sticky lg:top-24">
+        <aside className="border-line bg-surface-2 rounded-2xl border p-5 lg:sticky lg:top-28">
           <ShopFilters query={query} />
         </aside>
 
@@ -45,7 +45,7 @@ export default async function ShopPage({ searchParams }: PageProps<"/shop">) {
             {hasActiveFilters(query) && (
               <Link
                 href="/shop"
-                className="text-forest text-sm font-medium underline underline-offset-4"
+                className="text-heading text-sm font-medium underline underline-offset-4"
               >
                 Clear filters
               </Link>

@@ -8,14 +8,14 @@ export type PrivacySection = { id: string; title: string; body: ReactNode };
 const contactLine = (
   <>
     Consumer care on{" "}
-    <a href={siteConfig.hotline.href} className="text-forest font-medium underline">
+    <a href={siteConfig.hotline.href} className="text-heading font-medium underline">
       {siteConfig.hotline.display}
     </a>
     {siteConfig.email && (
       <>
         {" "}
         or by email at{" "}
-        <a href={`mailto:${siteConfig.email}`} className="text-forest font-medium underline">
+        <a href={`mailto:${siteConfig.email}`} className="text-heading font-medium underline">
           {siteConfig.email}
         </a>
       </>

@@ -54,10 +54,10 @@ export function ContactForm({
     return (
       <div
         role="status"
-        className="border-gold/60 bg-ivory rounded-2xl border p-8 text-center sm:p-12"
+        className="border-gold/60 bg-surface-2 rounded-2xl border p-8 text-center sm:p-12"
       >
-        <CheckCircle2 aria-hidden className="text-forest mx-auto size-12" strokeWidth={1.4} />
-        <h2 className="text-forest mt-5 text-3xl">Message sent</h2>
+        <CheckCircle2 aria-hidden className="text-heading mx-auto size-12" strokeWidth={1.4} />
+        <h2 className="text-heading mt-5 text-3xl">Message sent</h2>
         <p className="text-muted mx-auto mt-4 max-w-md">
           {successCopy[state.submittedType ?? "general"]}
         </p>
@@ -112,8 +112,8 @@ export function ContactForm({
       </div>
 
       {product && (
-        <p className="bg-sand rounded-lg px-4 py-3 text-sm">
-          Regarding: <strong className="text-forest font-semibold">{product.name}</strong>
+        <p className="bg-surface-3 rounded-lg px-4 py-3 text-sm">
+          Regarding: <strong className="text-heading font-semibold">{product.name}</strong>
         </p>
       )}
 
@@ -177,8 +177,8 @@ export function ContactForm({
       </fieldset>
 
       {showBusiness && (
-        <fieldset className="border-line bg-ivory space-y-5 rounded-xl border p-5">
-          <legend className="text-forest px-1 font-serif text-lg">About your business</legend>
+        <fieldset className="border-line bg-surface-2 space-y-5 rounded-xl border p-5">
+          <legend className="text-heading px-1 font-serif text-lg">About your business</legend>
           <div className="grid gap-5 sm:grid-cols-2">
             <Field label="Business name" name="businessName" error={errors.businessName} optional>
               {(p) => (

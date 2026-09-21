@@ -38,7 +38,7 @@ const steps: { title: string; body: string; slot?: SlotId; position?: string }[]
   { title: "Filter and enjoy", body: "Filter, and enjoy." },
 ];
 
-const NAV = 64;
+const NAV = 80;
 const COLD = [0x24, 0x40, 0x2f] as const; // deep green
 const WARM = [0xd9, 0x8b, 0x34] as const; // copper amber
 
@@ -90,24 +90,24 @@ export function BrewSteps() {
     <section
       id="brew"
       aria-labelledby="brew-heading"
-      className="on-dark text-paper scroll-mt-16 bg-[#111e16]"
+      className="text-ink bg-surface-alt scroll-mt-20"
     >
       <div ref={section}>
         <div
           className={cn(
             pinned
-              ? "sticky top-16 flex h-[calc(100dvh-4rem)] items-center overflow-hidden"
+              ? "sticky top-20 flex h-[calc(100dvh-5rem)] items-center overflow-hidden"
               : "py-24",
           )}
         >
           <div className="container-page grid items-center gap-12 lg:grid-cols-2">
             {pinned && (
               <div className="grid place-items-center">
-                <div className="relative aspect-[4/5] w-[min(24rem,78%)]">
+                <div className="relative aspect-square w-[min(28rem,80%)]">
                   <div
                     ref={orb}
                     aria-hidden
-                    className="orb absolute top-1/2 left-1/2 aspect-square w-[128%] -translate-x-1/2 -translate-y-1/2"
+                    className="orb absolute inset-0"
                     style={{ ["--orb" as string]: mix(0) }}
                   />
                   {steps.map((s, i) => {
@@ -118,7 +118,7 @@ export function BrewSteps() {
                         key={s.title}
                         aria-hidden={i !== active}
                         className={cn(
-                          "ring-gold/60 absolute inset-0 overflow-hidden rounded-3xl shadow-[0_30px_60px_-20px_rgb(0_0_0/0.7)] ring-1 transition-opacity duration-500",
+                          "ring-gold/60 absolute inset-0 overflow-hidden rounded-full ring-1 transition-opacity duration-500",
                           i === active ? "opacity-100" : "opacity-0",
                         )}
                       >
@@ -126,22 +126,32 @@ export function BrewSteps() {
                           src={img.src}
                           alt={img.alt}
                           fill
-                          sizes="24rem"
+                          sizes="28rem"
                           className={cn("object-cover", s.position)}
                         />
                       </div>
                     );
                   })}
+                  {/* Sphere shading and glow above every photo, so each one reads as part of the orb */}
+                  <div
+                    aria-hidden
+                    className="pointer-events-none absolute inset-0 rounded-full"
+                    style={{
+                      background:
+                        "radial-gradient(circle at 35% 30%, rgb(255 255 255 / 0.28) 0%, transparent 42%), radial-gradient(circle at 72% 78%, rgb(0 0 0 / 0.4) 0%, transparent 62%)",
+                      boxShadow:
+                        "inset 0 0 0 1px rgb(217 139 52 / 0.35), inset 0 -30px 60px -30px rgb(0 0 0 / 0.45)",
+                    }}
+                  />
                 </div>
               </div>
             )}
             <div>
               <SectionHeading
-                onDark
                 eyebrow="03 — The brewing"
                 title={
                   <span id="brew-heading">
-                    Water meets leaf. <em className="accent text-champagne">Keep it simple.</em>
+                    Water meets leaf. <em className="accent text-gold-ink">Keep it simple.</em>
                   </span>
                 }
               />
@@ -151,14 +161,14 @@ export function BrewSteps() {
                     {String(active + 1).padStart(2, "0")}
                   </p>
                   <h3 className="mt-3 font-serif text-3xl sm:text-4xl">{steps[active].title}</h3>
-                  <p className="text-paper/80 mt-3 max-w-md text-lg">{steps[active].body}</p>
+                  <p className="text-ink/80 mt-3 max-w-md text-lg">{steps[active].body}</p>
                   <div className="mt-8 flex gap-2" aria-hidden>
                     {steps.map((s, i) => (
                       <span
                         key={s.title}
                         className={cn(
                           "h-0.5 w-10 rounded-full",
-                          i <= active ? "bg-gold" : "bg-paper/20",
+                          i <= active ? "bg-gold" : "bg-line",
                         )}
                       />
                     ))}
@@ -171,10 +181,10 @@ export function BrewSteps() {
                     return (
                       <li
                         key={s.title}
-                        className="border-paper/10 flex items-center gap-4 rounded-2xl border bg-[#16281d] p-4"
+                        className="border-line bg-surface-2 flex items-center gap-4 rounded-2xl border p-4"
                       >
                         {img && (
-                          <div className="relative size-20 shrink-0 overflow-hidden rounded-xl">
+                          <div className="ring-gold/50 relative size-20 shrink-0 overflow-hidden rounded-full ring-1">
                             <Image
                               src={img.src}
                               alt={img.alt}
@@ -189,7 +199,7 @@ export function BrewSteps() {
                         </span>
                         <div>
                           <h3 className="font-serif text-xl">{s.title}</h3>
-                          <p className="text-paper/75 mt-1 text-[0.95rem]">{s.body}</p>
+                          <p className="text-ink/75 mt-1 text-[0.95rem]">{s.body}</p>
                         </div>
                       </li>
                     );
@@ -207,7 +217,7 @@ export function BrewSteps() {
       </div>
 
       <div className="container-page pb-24">
-        <p className="text-sage mb-5 text-xs font-medium tracking-[0.2em] uppercase">
+        <p className="text-muted mb-5 text-xs font-medium tracking-[0.2em] uppercase">
           The approved brewing guides
         </p>
         <BrewToggle />

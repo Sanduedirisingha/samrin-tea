@@ -35,7 +35,7 @@ export function ContactBand() {
     <section
       id="contact"
       aria-labelledby="contact-heading"
-      className="bg-cream scroll-mt-16 py-24 sm:py-28"
+      className="bg-surface scroll-mt-20 py-24 sm:py-28"
     >
       <div className="container-page">
         <div className="flex flex-wrap items-end justify-between gap-8">
@@ -50,14 +50,14 @@ export function ContactBand() {
           />
           <a
             href={siteConfig.hotline.href}
-            className="bg-ivory border-line hover:border-forest flex items-center gap-4 rounded-2xl border px-6 py-5 transition-colors"
+            className="bg-surface-2 border-line hover:border-heading flex items-center gap-4 rounded-2xl border px-6 py-5 transition-colors"
           >
             <Phone aria-hidden className="text-gold-ink size-6" strokeWidth={1.5} />
             <span>
               <span className="text-muted block text-xs tracking-[0.16em] uppercase">
                 Consumer care
               </span>
-              <span className="text-forest font-serif text-2xl">{siteConfig.hotline.display}</span>
+              <span className="text-heading font-serif text-2xl">{siteConfig.hotline.display}</span>
             </span>
           </a>
         </div>
@@ -67,13 +67,13 @@ export function ContactBand() {
             <li key={title} className="flex">
               <Link
                 href={href}
-                className="group reveal border-line bg-ivory hover:border-forest flex w-full flex-col rounded-2xl border p-7 transition-colors"
+                className="group reveal border-line bg-surface-2 hover:border-heading flex w-full flex-col rounded-2xl border p-7 transition-colors"
               >
                 <Icon aria-hidden className="text-gold-ink size-7" strokeWidth={1.4} />
                 <p className="text-muted mt-5 text-xs tracking-[0.16em] uppercase">{eyebrow}</p>
-                <h3 className="text-forest mt-1 text-2xl">{title}</h3>
+                <h3 className="text-heading mt-1 text-2xl">{title}</h3>
                 <p className="text-muted mt-3 flex-1">{body}</p>
-                <span className="text-forest mt-6 inline-flex items-center gap-2 font-medium">
+                <span className="text-heading mt-6 inline-flex items-center gap-2 font-medium">
                   {cta}
                   <ArrowRight
                     aria-hidden

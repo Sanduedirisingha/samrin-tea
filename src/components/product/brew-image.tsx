@@ -15,7 +15,7 @@ export function BrewImage({ format }: { format: "loose" | "tea_bags" }) {
         role="region"
         tabIndex={0}
         aria-label="Brewing instructions"
-        className="border-gold/50 bg-ivory overflow-x-auto rounded-2xl border"
+        className="border-gold/50 bg-surface-2 overflow-x-auto rounded-2xl border"
       >
         <Image
           src={art.src}

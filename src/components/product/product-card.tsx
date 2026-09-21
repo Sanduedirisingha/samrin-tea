@@ -27,11 +27,11 @@ export function ProductCard({
   return (
     <article
       className={cn(
-        "group border-line bg-ivory shadow-card relative flex w-full flex-col overflow-hidden rounded-2xl border border-t-4 transition-shadow duration-300 hover:shadow-[0_16px_36px_-16px_rgb(4_40_16/0.35)]",
-        product.range === "strong" ? "border-t-strong" : "border-t-forest",
+        "group border-line bg-surface-2 shadow-card relative flex w-full flex-col overflow-hidden rounded-2xl border border-t-4 transition-shadow duration-300 hover:shadow-[0_16px_36px_-16px_rgb(4_40_16/0.35)]",
+        product.range === "strong" ? "border-t-strong" : "border-t-bopf",
       )}
     >
-      <div className="bg-ivory relative aspect-[4/5] overflow-hidden">
+      <div className="bg-surface-2 relative aspect-[4/5] overflow-hidden">
         {image && (
           <Image
             src={image.src}
@@ -45,7 +45,7 @@ export function ProductCard({
       </div>
       <div className="flex flex-1 flex-col items-center gap-1 p-4 text-center sm:p-5">
         <VariantChip range={product.range} />
-        <h3 className="text-forest mt-3 flex min-h-[4.75rem] items-center justify-center font-serif text-lg leading-snug sm:min-h-14 sm:text-xl">
+        <h3 className="text-heading mt-3 flex min-h-[4.75rem] items-center justify-center font-serif text-lg leading-snug sm:min-h-14 sm:text-xl">
           {/* Stretched link: the whole card is clickable, the button stays separate */}
           <Link href={productHref(product.slug)} className="after:absolute after:inset-0">
             {product.name}
@@ -55,9 +55,9 @@ export function ProductCard({
 
         <div className="mt-auto flex w-full flex-col gap-3 pt-4">
           {product.priceLkr !== null ? (
-            <p className="text-deep text-lg font-semibold">{formatLkr(product.priceLkr)}</p>
+            <p className="text-ink text-lg font-semibold">{formatLkr(product.priceLkr)}</p>
           ) : (
-            <p className="text-deep text-sm font-medium">Business pricing on request</p>
+            <p className="text-ink text-sm font-medium">Business pricing on request</p>
           )}
           <div className="relative z-10">
             {purchasable ? (
