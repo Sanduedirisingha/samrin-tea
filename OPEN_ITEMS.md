@@ -20,6 +20,9 @@ where the orb warms from green to amber, and a shop with a left filter sidebar. 
   "fine-cut", "Price TBC", the internal notes cards). "A cup with backbone." is kept as the headline (client-supplied design).
   The "making" cards use only facts from the product document (withering → sifting, ISO scope, packed at factory, tea bags at a specialist facility).
 - **Pinned scroll sections** run only at ≥ 1024 px without reduced-motion; phones and reduced-motion users get a swipeable strip and a step list.
+- **Story page (`/about`)** now opens with the design's "A new tea, told plainly." section: three photo slots plus three text cards. The slots show the design's
+  hatch texture with captions from approved copy; drop real Samrin photos in (`src/components/sections/story.tsx`) when available. The prototype's
+  internal-note cards ("What we don't say yet", "Language") were replaced with public-facing statements from the approved copy.
 - The prototype's in-page shop/product/contact sections map to the real routes (`/shop`, `/shop/[slug]`, `/contact`); its inline enquiry form and map were not reproduced.
 
 ## A. Blockers to verify before anyone relies on the site

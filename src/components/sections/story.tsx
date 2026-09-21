@@ -1,5 +1,26 @@
+import { Coffee, Factory, Mountain, type LucideIcon } from "lucide-react";
 import Link from "next/link";
 import { SectionHeading } from "@/components/ui/section-heading";
+
+/** Photo slots from the design. Captions come from approved copy; swap in real photography later. */
+const tiles: { icon: LucideIcon; label: string; caption: string }[] = [
+  {
+    icon: Mountain,
+    label: "Ruhuna",
+    caption:
+      "Ruhuna is part of Sri Lanka's low-grown tea area, where warm conditions suit richly coloured black tea.",
+  },
+  {
+    icon: Factory,
+    label: "One factory",
+    caption: "Samrin Tea Factory, Nakiyadeniya, Galle district.",
+  },
+  {
+    icon: Coffee,
+    label: "Your cup",
+    caption: "Milk tea or plain: your usual way of drinking tea is the best guide.",
+  },
+];
 
 /** Three plain statements, each taken from the approved "What Samrin brings" copy. */
 const cards = [
@@ -17,7 +38,15 @@ const cards = [
   },
 ] as const;
 
-export function Story() {
+export function Story({
+  as = "h2",
+  withTiles,
+  eyebrow = "06 — The story",
+}: {
+  as?: "h1" | "h2";
+  withTiles?: boolean;
+  eyebrow?: string;
+}) {
   return (
     <section
       id="story"
@@ -26,8 +55,9 @@ export function Story() {
     >
       <div className="container-page">
         <SectionHeading
+          as={as}
           onDark
-          eyebrow="06 — The story"
+          eyebrow={eyebrow}
           title={
             <span id="story-heading">
               A new tea, <em className="accent text-champagne">told plainly.</em>
@@ -35,25 +65,47 @@ export function Story() {
           }
           intro="One region, one factory, and a cup strong enough to be worth talking about. Everything here is something we can stand behind."
         />
-        <ul className="mt-14 grid gap-5 md:grid-cols-3">
+
+        {withTiles && (
+          <ul className="mt-14 grid gap-5 md:grid-cols-3">
+            {tiles.map(({ icon: Icon, label, caption }) => (
+              <li
+                key={label}
+                className="hatch border-paper/10 relative flex aspect-[4/3] flex-col justify-between overflow-hidden rounded-2xl border bg-[#16281d] p-6"
+              >
+                <Icon aria-hidden className="text-champagne size-9" strokeWidth={1.3} />
+                <div>
+                  <p className="text-sage text-xs tracking-[0.2em] uppercase">{label}</p>
+                  <p className="text-paper/90 mt-2 text-[0.95rem] leading-snug">{caption}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
+        )}
+
+        <ul
+          className={
+            withTiles ? "mt-5 grid gap-5 md:grid-cols-3" : "mt-14 grid gap-5 md:grid-cols-3"
+          }
+        >
           {cards.map((c) => (
-            <li
-              key={c.title}
-              className="reveal border-paper/10 rounded-2xl border bg-[#16281d] p-7"
-            >
+            <li key={c.title} className="border-paper/10 rounded-2xl border bg-[#16281d] p-7">
               <h3 className="font-serif text-2xl">{c.title}</h3>
               <p className="text-paper/75 mt-3 leading-relaxed">{c.body}</p>
             </li>
           ))}
         </ul>
-        <p className="mt-10">
-          <Link
-            href="/about"
-            className="text-champagne font-medium underline underline-offset-4 hover:text-white"
-          >
-            Read the full story →
-          </Link>
-        </p>
+
+        {!withTiles && (
+          <p className="mt-10">
+            <Link
+              href="/about"
+              className="text-champagne font-medium underline underline-offset-4 hover:text-white"
+            >
+              Read the full story →
+            </Link>
+          </p>
+        )}
       </div>
     </section>
   );

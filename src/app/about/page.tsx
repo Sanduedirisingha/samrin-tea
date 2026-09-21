@@ -1,9 +1,6 @@
 import type { Metadata } from "next";
-import { PageHeader } from "@/components/sections/page-header";
+import { Story } from "@/components/sections/story";
 import { ButtonLink } from "@/components/ui/button";
-import { GoldCurves } from "@/components/ui/gold-curves";
-import { Logo } from "@/components/ui/logo";
-import { PlaqueBadge } from "@/components/ui/plaque-badge";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { reasonsByVariant } from "@/content/reasons";
 import { siteConfig } from "@/lib/site-config";
@@ -15,7 +12,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/about" },
 };
 
-const [, ruhuna, looseBrings, looseQuality] = reasonsByVariant.loose;
+const [, ruhuna, , looseQuality] = reasonsByVariant.loose;
 const bagBrings = reasonsByVariant.tea_bags[2];
 const visit = reasonsByVariant.loose[4];
 
@@ -48,43 +45,7 @@ export default function AboutPage() {
   const { manufacturer, distributor, factory } = siteConfig;
   return (
     <>
-      <PageHeader
-        eyebrow="About Samrin"
-        title={
-          <>
-            One region, one factory, <em className="accent">told plainly.</em>
-          </>
-        }
-        intro="Samrin is pure Ceylon black tea from Ruhuna, Sri Lanka — unblended, and packed directly from the factory where it is made."
-      />
-
-      <section
-        aria-label="Samrin at a glance"
-        className="on-dark bg-deep text-cream relative isolate overflow-hidden py-16 text-center sm:py-24"
-      >
-        <GoldCurves />
-        <div className="container-prose relative flex flex-col items-center">
-          <Logo variant="white" className="h-28 sm:h-36" />
-          <PlaqueBadge className="mt-8">Factory Fresh</PlaqueBadge>
-          <p className="text-champagne mt-6 text-sm font-semibold tracking-[0.18em] uppercase">
-            Single region · Unblended · Directly from the factory
-          </p>
-        </div>
-      </section>
-
-      <Block
-        id="story"
-        eyebrow="Our story"
-        title={
-          <>
-            One region, one factory, <em className="accent">one clear source.</em>
-          </>
-        }
-      >
-        <p>{looseBrings.summary}</p>
-        <p>{looseBrings.body[0]}</p>
-        <p>{looseBrings.body[1]}</p>
-      </Block>
+      <Story as="h1" withTiles eyebrow="The story" />
 
       <Block
         id="ruhuna"
