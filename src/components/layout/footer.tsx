@@ -1,13 +1,15 @@
 import Link from "next/link";
 import { Logo } from "@/components/ui/logo";
 import { Trilingual } from "@/components/ui/trilingual";
+import { getStoreSettings } from "@/lib/data/settings";
 import { siteConfig } from "@/lib/site-config";
 
 const linkClass =
   "inline-flex min-h-8 items-center text-ink/85 underline-offset-4 transition-colors hover:text-heading hover:underline";
 
-export function Footer() {
+export async function Footer() {
   const { manufacturer, distributor } = siteConfig;
+  const { contactEmail } = await getStoreSettings();
   return (
     <footer className="bg-surface text-ink mt-24">
       <div className="container-page grid gap-12 py-16 md:grid-cols-[1.1fr_1fr_1fr]">
@@ -69,6 +71,13 @@ export function Footer() {
               {siteConfig.hotline.display}
             </a>
           </p>
+          {contactEmail && (
+            <p className="mt-1 text-sm">
+              <a href={`mailto:${contactEmail}`} className={`${linkClass} break-all`}>
+                {contactEmail}
+              </a>
+            </p>
+          )}
           <p className="mt-1 text-sm">
             <a href={siteConfig.website.href} className={linkClass}>
               {siteConfig.website.display}
