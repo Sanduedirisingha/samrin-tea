@@ -214,7 +214,7 @@ export default async function ProductPage({ params }: PageProps<"/shop/[slug]">)
         </h2>
         <ul className="mt-8 grid grid-cols-2 gap-x-4 gap-y-6 sm:gap-x-6 lg:grid-cols-3">
           {related.map((p) => (
-            <li key={p.id} className="flex">
+            <li key={p.id} className="flex [&:nth-child(3)]:max-lg:hidden">
               <div className="flex w-full">
                 <ProductCard product={p} sizes="(min-width: 1024px) 33vw, 50vw" />
               </div>

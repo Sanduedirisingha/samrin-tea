@@ -49,6 +49,7 @@ export default async function ShopPage({ searchParams }: PageProps<"/shop">) {
           )}
         </div>
 
+        <h2 className="sr-only">Products</h2>
         {results.length > 0 ? (
           <ul className="mt-8 grid grid-cols-2 gap-x-4 gap-y-6 sm:gap-x-6 lg:grid-cols-4">
             {results.map((product, i) => (

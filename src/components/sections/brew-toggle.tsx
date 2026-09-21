@@ -1,8 +1,7 @@
 "use client";
 
-import Image from "next/image";
 import { useId, useState } from "react";
-import { brewArtwork } from "@/content/reasons";
+import { BrewImage } from "@/components/product/brew-image";
 import { cn } from "@/lib/cn";
 
 const tabs = [
@@ -53,17 +52,9 @@ export function BrewToggle() {
         role="tabpanel"
         id={`${baseId}-panel`}
         aria-labelledby={`${baseId}-tab-${active}`}
-        className="border-gold/50 bg-ivory mt-8 overflow-hidden rounded-2xl border"
+        className="mt-8"
       >
-        <Image
-          key={active}
-          src={brewArtwork[active].src}
-          alt={brewArtwork[active].alt}
-          width={brewArtwork[active].width}
-          height={brewArtwork[active].height}
-          sizes="(min-width: 1216px) 70rem, 100vw"
-          className="h-auto w-full"
-        />
+        <BrewImage key={active} format={active} />
       </div>
     </div>
   );
