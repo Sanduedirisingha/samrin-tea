@@ -1,21 +1,26 @@
 import { Coffee, Factory, Mountain, type LucideIcon } from "lucide-react";
 import Link from "next/link";
 import { SectionHeading } from "@/components/ui/section-heading";
+import { hasSlot, SlotImage } from "@/components/ui/slot-image";
+import type { SlotId } from "@/content/site-images";
 
 /** Photo slots from the design. Captions come from approved copy; swap in real photography later. */
-const tiles: { icon: LucideIcon; label: string; caption: string }[] = [
+const tiles: { slot: SlotId; icon: LucideIcon; label: string; caption: string }[] = [
   {
+    slot: "storyRuhuna",
     icon: Mountain,
     label: "Ruhuna",
     caption:
       "Ruhuna is part of Sri Lanka's low-grown tea area, where warm conditions suit richly coloured black tea.",
   },
   {
+    slot: "storyFactory",
     icon: Factory,
     label: "One factory",
     caption: "Samrin Tea Factory, Nakiyadeniya, Galle district.",
   },
   {
+    slot: "storyCup",
     icon: Coffee,
     label: "Your cup",
     caption: "Milk tea or plain: your usual way of drinking tea is the best guide.",
@@ -68,13 +73,18 @@ export function Story({
 
         {withTiles && (
           <ul className="mt-14 grid gap-5 md:grid-cols-3">
-            {tiles.map(({ icon: Icon, label, caption }) => (
+            {tiles.map(({ slot, icon: Icon, label, caption }) => (
               <li
                 key={label}
                 className="hatch border-paper/10 relative flex aspect-[4/3] flex-col justify-between overflow-hidden rounded-2xl border bg-[#16281d] p-6"
               >
-                <Icon aria-hidden className="text-champagne size-9" strokeWidth={1.3} />
-                <div>
+                <SlotImage slot={slot} sizes="(min-width: 768px) 33vw, 100vw" />
+                {hasSlot(slot) ? (
+                  <span />
+                ) : (
+                  <Icon aria-hidden className="text-champagne relative size-9" strokeWidth={1.3} />
+                )}
+                <div className="relative">
                   <p className="text-sage text-xs tracking-[0.2em] uppercase">{label}</p>
                   <p className="text-paper/90 mt-2 text-[0.95rem] leading-snug">{caption}</p>
                 </div>

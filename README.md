@@ -90,6 +90,16 @@ src/lib/                  env, site-config, format, districts, cart/, payments/,
 Design tokens (colours from the brand guide, fonts) live in `src/app/globals.css` under `@theme`.
 Burgundy (`strong`) is used **only** to identify the Strong range.
 
+## How to add photos
+
+Photo slots (Origin tile, the four Making cards, the three Story tiles) show the design's texture until you fill them:
+
+1. Copy the photo into `public/images/site/` (JPG or WebP, about 2000 px on the long edge; Next.js resizes it for each screen).
+2. Open `src/content/site-images.ts` and replace the slot's `null` with `{ src, alt, width, height }`. Write real alt text.
+3. Photos that need a credit (Creative Commons etc.) get `credit: { text, href }` and are listed automatically under "Photo credits" on the Story page.
+
+Product pack images are separate: see `npm run assets:products` and "How to add a product". Use authentic Samrin photography only.
+
 ## How to add a product
 
 1. Add the pack image as `public/images/products/<slug>.webp` (or extend `scripts/build-product-images.mjs`).

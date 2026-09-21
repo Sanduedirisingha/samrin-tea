@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { SectionHeading } from "@/components/ui/section-heading";
+import { SlotImage } from "@/components/ui/slot-image";
 import { reasonsByVariant } from "@/content/reasons";
 
 const [, ruhuna, brings] = reasonsByVariant.loose;
@@ -49,12 +50,15 @@ export function Origin() {
         </div>
 
         <div className="grid grid-cols-2 gap-4">
-          <div className="hatch border-paper/15 col-span-2 flex aspect-[16/10] flex-col justify-end rounded-2xl border bg-[#16281d] p-7">
-            <p className="text-sage text-xs tracking-[0.2em] uppercase">Where it is made</p>
-            <p className="mt-2 font-serif text-4xl sm:text-5xl">
+          <div className="hatch border-paper/15 relative col-span-2 flex aspect-[16/10] flex-col justify-end overflow-hidden rounded-2xl border bg-[#16281d] p-7">
+            <SlotImage slot="originMain" sizes="(min-width: 1024px) 40vw, 100vw" />
+            <p className="text-sage relative text-xs tracking-[0.2em] uppercase">
+              Where it is made
+            </p>
+            <p className="relative mt-2 font-serif text-4xl sm:text-5xl">
               Nakiyadeniya, <em className="accent text-champagne">Galle district</em>
             </p>
-            <p className="text-paper/70 mt-3 text-sm">
+            <p className="text-paper/70 relative mt-3 text-sm">
               Between the Kanneliya, Dediyagala and Kottawa forest areas.
             </p>
           </div>

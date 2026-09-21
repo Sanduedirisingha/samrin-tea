@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { PhotoCredits } from "@/components/sections/photo-credits";
 import { Story } from "@/components/sections/story";
 import { ButtonLink } from "@/components/ui/button";
 import { SectionHeading } from "@/components/ui/section-heading";
@@ -173,6 +174,8 @@ export default function AboutPage() {
           </a>
         </p>
       </Block>
+
+      <PhotoCredits />
     </>
   );
 }
