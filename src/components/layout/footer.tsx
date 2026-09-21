@@ -12,9 +12,11 @@ export function Footer() {
     <footer className="bg-surface text-ink mt-24">
       <div className="container-page grid gap-12 py-16 md:grid-cols-[1.1fr_1fr_1fr]">
         <div>
-          <Logo className="h-20" />
+          <Logo className="mx-auto h-20 md:mx-0" />
           <Trilingual className="mt-6" />
-          <p className="text-ink/85 mt-3 max-w-xs text-sm leading-relaxed">{siteConfig.tagline}</p>
+          <p className="text-ink/85 mx-auto mt-3 max-w-xs text-sm leading-relaxed md:mx-0">
+            {siteConfig.tagline}
+          </p>
         </div>
 
         <nav aria-label="Footer">
