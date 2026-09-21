@@ -41,7 +41,7 @@ export function BrewToggle() {
             onClick={() => setActive(t.key)}
             className={cn(
               "min-h-11 rounded-full px-6 text-sm font-medium transition-colors",
-              active === t.key ? "bg-forest text-ivory" : "text-forest hover:bg-champagne/40",
+              active === t.key ? "bg-forest text-ivory" : "text-forest hover:bg-sand",
             )}
           >
             {t.label}

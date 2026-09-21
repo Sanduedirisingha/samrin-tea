@@ -17,14 +17,14 @@ export function MobileNav() {
   }, [open]);
 
   return (
-    <div className="md:hidden">
+    <div className="lg:hidden">
       <button
         type="button"
         aria-expanded={open}
         aria-controls="mobile-menu"
         aria-label={open ? "Close menu" : "Open menu"}
         onClick={() => setOpen((v) => !v)}
-        className="text-forest hover:bg-champagne/40 grid size-11 place-items-center rounded-full transition-colors"
+        className="text-paper hover:bg-paper/10 grid size-11 place-items-center rounded-full transition-colors"
       >
         {open ? <X aria-hidden className="size-6" /> : <Menu aria-hidden className="size-6" />}
       </button>
@@ -33,25 +33,34 @@ export function MobileNav() {
         id="mobile-menu"
         aria-label="Mobile"
         hidden={!open}
-        className="border-gold/40 bg-ivory absolute inset-x-0 top-full border-b shadow-[0_18px_30px_-18px_rgb(4_40_16/0.35)]"
+        className="on-dark bg-deep border-paper/10 absolute inset-x-0 top-full border-b shadow-[0_18px_30px_-18px_rgb(0_0_0/0.6)]"
       >
         <ul className="container-page py-3">
           {primaryNav.map((item) => (
-            <li key={item.href} className="border-line border-b last:border-0">
+            <li key={item.href} className="border-paper/10 border-b">
               <Link
                 href={item.href}
                 onClick={() => setOpen(false)}
-                className="text-forest flex min-h-14 items-center font-serif text-2xl"
+                className="text-paper flex min-h-14 items-center font-serif text-2xl"
               >
                 {item.label}
               </Link>
             </li>
           ))}
-          <li className="text-muted py-4 text-sm">
-            Consumer care{" "}
-            <a href={siteConfig.hotline.href} className="text-forest font-medium">
-              {siteConfig.hotline.display}
-            </a>
+          <li className="flex flex-wrap items-center justify-between gap-3 py-4">
+            <span className="text-paper/75 text-sm">
+              Consumer care{" "}
+              <a href={siteConfig.hotline.href} className="text-champagne font-medium">
+                {siteConfig.hotline.display}
+              </a>
+            </span>
+            <Link
+              href="/contact?type=business"
+              onClick={() => setOpen(false)}
+              className="bg-gold text-deep inline-flex min-h-11 items-center rounded-full px-5 text-sm font-medium"
+            >
+              Business supply
+            </Link>
           </li>
         </ul>
       </nav>

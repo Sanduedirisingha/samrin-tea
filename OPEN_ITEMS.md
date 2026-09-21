@@ -2,6 +2,26 @@
 
 Last updated 21 September 2026. Ordered by how much each item affects launch.
 
+## 0. Design source (updated)
+
+The visual design now follows **"SAMRIN Tea - Homepage (standalone).html"** as requested: dark green (`#0E1A14`/`#16281D`)
+with a copper accent (`#C46A22`, amber `#E9A354`), cream/ivory light sections, Newsreader + Instrument Sans with an
+italic accent word, a sticky dark header, a glowing orb, a pinned horizontal "making" strip, a pinned brewing sequence
+where the orb warms from green to amber, and a shop with a left filter sidebar. Decisions to confirm:
+
+- **This departs from the brand guide** (green / cream / **gold** family; CTAs in forest green). Copper replaces gold and the
+  primary CTA on dark sections is copper. Burgundy is still used only for the Strong range. Tokens are all in
+  `src/app/globals.css` if you want to move back toward gold.
+- **The prototype's typed "SAMRIN TEA" wordmark is replaced by the approved logo (reversed)**, because the brand guide says the wordmark must
+  come from the logo artwork.
+- **Prototype photos are not used.** They are labelled "stock reference", and one shows another brand's sign ("DAMRO Tea"). Image-less panels use
+  the design's hatch texture instead. Real Samrin photography can drop into the Origin/Making tiles.
+- **Prototype copy that could not be verified was replaced with approved copy** (e.g. "leaf arrives the same day it comes off the bush",
+  "fine-cut", "Price TBC", the internal notes cards). "A cup with backbone." is kept as the headline (client-supplied design).
+  The "making" cards use only facts from the product document (withering → sifting, ISO scope, packed at factory, tea bags at a specialist facility).
+- **Pinned scroll sections** run only at ≥ 1024 px without reduced-motion; phones and reduced-motion users get a swipeable strip and a step list.
+- The prototype's in-page shop/product/contact sections map to the real routes (`/shop`, `/shop/[slug]`, `/contact`); its inline enquiry form and map were not reproduced.
+
 ## A. Blockers to verify before anyone relies on the site
 
 1. **Neon was not tested.** No Neon connection string was available while building. Everything was built
@@ -97,11 +117,9 @@ inventory management · deployment · analytics · blog · CAPTCHA (`verifyCaptc
 - Automated sweep of 12 URLs (all routes incl. filtered shop, catering product, success page, 404) at **390 / 768 / 1280 / 1536 px**: no horizontal
   scroll, exactly one `<h1>` per page, alt text on every image, no console errors (the intentional 404 aside). One overflow bug found
   (catering CTA button on phones) and fixed. `npm run typecheck`, `lint`, `build` pass.
-- **Lighthouse (mobile, simulated throttling, this dev machine):** Accessibility 100, Best Practices 100,
-  SEO 100 (cart/checkout intentionally `noindex` → 69). Performance was **82–95 on most pages but varied a lot
-  run to run (some runs 64–80 on a busy machine; the product page was the least stable)**. Target ≥ 90 was
-  therefore **not reliably met**; re-measure on a quiet machine or after deploy. Observed (unthrottled) LCP is
-  under 1 s. Biggest remaining costs: framework JS (~157 KB gz) and web-font loading (Sinhala/Tamil glyphs appear
-  on every page via the footer line).
+- **Lighthouse (mobile, simulated throttling, this dev machine), after the redesign:** Accessibility 97–100 (one contrast issue on the home
+  page was fixed afterwards), Best Practices 100, SEO 100 (cart/checkout intentionally `noindex` → 69). Performance was **70–81** on the
+  pages re-measured (home, shop, product, about, contact); scores vary a lot run to run on this machine. Target ≥ 90 is **not met**; the home page is
+  heaviest because of the scroll-linked sections and web fonts. Observed (unthrottled) LCP is about 1 s or less.
 - Not tested: real Neon, real pack images, Safari/Firefox, screen readers. Visual review was done at 390 and 1280 px; 768 and 1536 px were
   checked only by the automated sweep above.

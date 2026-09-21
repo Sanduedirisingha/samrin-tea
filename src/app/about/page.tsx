@@ -60,7 +60,7 @@ export default function AboutPage() {
 
       <section
         aria-label="Samrin at a glance"
-        className="on-dark bg-forest text-cream relative isolate overflow-hidden py-16 text-center sm:py-24"
+        className="on-dark bg-deep text-cream relative isolate overflow-hidden py-16 text-center sm:py-24"
       >
         <GoldCurves />
         <div className="container-prose relative flex flex-col items-center">

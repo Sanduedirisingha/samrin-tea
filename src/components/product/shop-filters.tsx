@@ -24,7 +24,7 @@ function Chip({ href, active, children }: { href: string; active: boolean; child
 function Group({ label, children }: { label: string; children: React.ReactNode }) {
   return (
     <div role="group" aria-label={label} className="flex flex-wrap items-center gap-2">
-      <span className="text-muted mr-1 w-full text-xs font-semibold tracking-[0.16em] uppercase sm:w-auto">
+      <span className="text-muted w-full text-xs font-semibold tracking-[0.16em] uppercase">
         {label}
       </span>
       {children}
@@ -35,7 +35,7 @@ function Group({ label, children }: { label: string; children: React.ReactNode }
 /** URL-driven filters: plain links, so they work without JS and are server-rendered. */
 export function ShopFilters({ query }: { query: ShopQuery }) {
   return (
-    <nav aria-label="Filter and sort products" className="space-y-5">
+    <nav aria-label="Filter and sort products" className="space-y-6">
       <Group label="Range">
         {RANGE_OPTIONS.map((o) => (
           <Chip

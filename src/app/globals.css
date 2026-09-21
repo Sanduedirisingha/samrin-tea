@@ -1,22 +1,29 @@
 @import "tailwindcss";
 
-/* SAMRIN design tokens — colours come from the Basic Brand & Digital Use Guide. */
+/*
+ * SAMRIN design tokens — palette from the approved homepage design (dark green + copper,
+ * cream sections). Burgundy (`strong`) still identifies the Strong range only.
+ */
 @theme {
-  --color-forest: #063d24;
-  --color-deep: #042810;
-  --color-cream: #f6f0cd;
-  --color-ivory: #fbf8e7;
-  --color-gold: #c9a43b;
-  --color-champagne: #e3d39a;
+  --color-forest: #16281d; /* dark green panels, headings and buttons on light */
+  --color-deep: #0e1a14; /* page ink / darkest sections */
+  --color-moss: #20402e;
+  --color-cream: #ede6d6; /* light section background */
+  --color-paper: #f4efe3; /* light text on dark, light cards */
+  --color-ivory: #fbf7ec; /* cards on cream */
+  --color-sand: #e4dbc6; /* soft panels and hovers on light */
+  --color-gold: #c46a22; /* copper accent: lines, icons, primary CTA on dark */
+  --color-champagne: #e9a354; /* amber accent on dark */
   --color-leaf: #9cbd32;
   --color-strong: #8f1628;
 
-  /* Derived (all AA on cream/ivory unless noted) */
-  --color-muted: #4b5f52; /* secondary text */
-  --color-line: #d9cf9c; /* hairline borders on cream */
-  --color-gold-ink: #7a5f0f; /* gold that is safe to use for small text on cream */
-  --color-strong-soft: #f3dfe2; /* tint for Strong chips */
-  --color-forest-soft: #dfe9d3; /* tint for BOPF chips */
+  /* Derived */
+  --color-muted: #5e5140; /* secondary text on light */
+  --color-sage: #8fa98f; /* secondary text on dark */
+  --color-line: #d8cfbb; /* hairlines on light */
+  --color-gold-ink: #9a4d12; /* copper that is AA-safe for small text on light */
+  --color-strong-soft: #f3dfe2;
+  --color-forest-soft: #dfe6d9;
   --color-error: #b3261e;
   --color-success: #1e6b3a;
 
@@ -108,6 +115,43 @@
       opacity: 1;
       transform: none;
     }
+  }
+
+  /* Glowing sphere from the homepage design. --orb sets its colour. */
+  .orb {
+    --orb: #d98b34;
+    border-radius: 9999px;
+    background: radial-gradient(
+      circle at 35% 30%,
+      color-mix(in srgb, var(--orb) 55%, white) 0%,
+      var(--orb) 38%,
+      color-mix(in srgb, var(--orb) 50%, black) 100%
+    );
+    box-shadow:
+      0 0 0 1px color-mix(in srgb, var(--orb) 40%, transparent),
+      0 0 110px 16px color-mix(in srgb, var(--orb) 32%, transparent);
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .drift {
+      animation: drift 7s ease-in-out infinite;
+    }
+  }
+  @keyframes drift {
+    0%,
+    100% {
+      transform: translate3d(0, 0, 0);
+    }
+    50% {
+      transform: translate3d(0, -14px, 0);
+    }
+  }
+  /* Diagonal hatch used for image-less panels (from the "texture study" tile) */
+  .hatch {
+    background-image: repeating-linear-gradient(
+      -58deg,
+      rgb(244 239 227 / 0.05) 0 2px,
+      transparent 2px 14px
+    );
   }
 
   .skeleton {

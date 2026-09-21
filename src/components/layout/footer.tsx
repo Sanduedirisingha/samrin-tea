@@ -9,7 +9,7 @@ const linkClass =
 export function Footer() {
   const { manufacturer, distributor } = siteConfig;
   return (
-    <footer className="on-dark bg-forest text-cream mt-24">
+    <footer className="on-dark bg-deep text-cream mt-24">
       <div className="container-page grid gap-12 py-16 md:grid-cols-[1.1fr_1fr_1fr]">
         <div>
           <Logo variant="white" className="h-20" />

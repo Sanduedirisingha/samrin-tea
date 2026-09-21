@@ -112,7 +112,7 @@ export function ContactForm({
       </div>
 
       {product && (
-        <p className="bg-champagne/40 rounded-lg px-4 py-3 text-sm">
+        <p className="bg-sand rounded-lg px-4 py-3 text-sm">
           Regarding: <strong className="text-forest font-semibold">{product.name}</strong>
         </p>
       )}

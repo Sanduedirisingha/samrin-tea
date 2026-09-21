@@ -8,10 +8,11 @@ type Size = "sm" | "md" | "lg";
 type StyleOptions = { variant?: Variant; size?: Size; fullWidth?: boolean };
 
 const variants: Record<Variant, string> = {
-  primary: "bg-forest text-ivory hover:bg-deep",
+  primary: "bg-forest text-ivory hover:bg-moss",
   secondary: "border border-forest text-forest hover:bg-forest hover:text-ivory",
-  "on-dark": "on-dark bg-cream text-forest hover:bg-white",
-  "secondary-on-dark": "on-dark border border-champagne/70 text-cream hover:bg-cream/10",
+  "on-dark": "on-dark bg-gold text-deep hover:bg-champagne",
+  "secondary-on-dark":
+    "on-dark border border-paper/30 text-paper hover:border-paper/70 hover:bg-paper/5",
 };
 
 const sizes: Record<Size, string> = {

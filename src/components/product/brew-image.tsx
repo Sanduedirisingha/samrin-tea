@@ -30,7 +30,7 @@ export function BrewImage({ format }: { format: "loose" | "tea_bags" }) {
           className={cn("h-auto w-full", minWidth)}
         />
       </div>
-      <p className="text-muted mt-2 text-xs md:hidden">Swipe sideways to see every step →</p>
+      <p className="mt-2 text-xs opacity-75 md:hidden">Swipe sideways to see every step →</p>
     </>
   );
 }

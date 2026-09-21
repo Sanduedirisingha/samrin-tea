@@ -20,7 +20,7 @@ export function QuantityStepper({
 }) {
   const set = (n: number) => onChange(Math.min(Math.max(n, min), max));
   const btn =
-    "grid size-11 place-items-center text-forest transition-colors hover:bg-champagne/40 disabled:cursor-not-allowed disabled:text-muted/40 disabled:hover:bg-transparent";
+    "grid size-11 place-items-center text-forest transition-colors hover:bg-sand disabled:cursor-not-allowed disabled:text-muted/40 disabled:hover:bg-transparent";
   return (
     <div
       role="group"

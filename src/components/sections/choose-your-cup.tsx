@@ -37,51 +37,53 @@ export function ChooseYourCup({
     },
   ];
   return (
-    <section aria-labelledby="choose-heading" className="container-page mt-24">
-      <SectionHeading
-        eyebrow="01 — Choose your cup"
-        title={
-          <span id="choose-heading">
-            Strong or Premium BOPF — <em className="accent">which is right for me?</em>
-          </span>
-        }
-        intro={compare.summary}
-      />
-      <ul className="mt-12 grid gap-6 lg:grid-cols-2">
-        {cards.map((c) => {
-          const image = c.product?.images[0];
-          return (
-            <li
-              key={c.range}
-              className={`on-dark reveal relative overflow-hidden rounded-3xl ${c.surface}`}
-            >
-              <div className="grid grid-cols-1 items-end gap-8 p-7 sm:grid-cols-[1fr_9rem] sm:gap-6 sm:p-8 xl:grid-cols-[1fr_12rem] xl:p-10">
-                <div className="pb-2">
-                  <VariantChip range={c.range} onDark />
-                  <h3 className="text-cream mt-5 text-3xl sm:text-4xl">
-                    <em className="accent">{c.tagline}</em>
-                  </h3>
-                  <p className="text-cream/90 mt-4 text-[0.95rem] leading-relaxed">{c.body}</p>
-                  <ButtonLink href={c.href} variant="on-dark" className="mt-7">
-                    {c.cta}
-                  </ButtonLink>
-                </div>
-                {image && (
-                  <div className="bg-ivory ring-gold/70 relative order-first mx-auto aspect-[4/5] w-40 overflow-hidden rounded-xl ring-1 sm:order-last sm:w-auto">
-                    <Image
-                      src={image.src}
-                      alt={image.alt}
-                      fill
-                      sizes="(min-width: 1280px) 12rem, 10rem"
-                      className="object-contain p-1"
-                    />
+    <section aria-labelledby="choose-heading" className="bg-cream py-24 sm:py-28">
+      <div className="container-page">
+        <SectionHeading
+          eyebrow="04 — Choose your cup"
+          title={
+            <span id="choose-heading">
+              Strong or Premium BOPF — <em className="accent">which is right for me?</em>
+            </span>
+          }
+          intro={compare.summary}
+        />
+        <ul className="mt-12 grid gap-6 lg:grid-cols-2">
+          {cards.map((c) => {
+            const image = c.product?.images[0];
+            return (
+              <li
+                key={c.range}
+                className={`on-dark reveal relative overflow-hidden rounded-3xl ${c.surface}`}
+              >
+                <div className="grid grid-cols-1 items-end gap-8 p-7 sm:grid-cols-[1fr_9rem] sm:gap-6 sm:p-8 xl:grid-cols-[1fr_12rem] xl:p-10">
+                  <div className="pb-2">
+                    <VariantChip range={c.range} onDark />
+                    <h3 className="text-cream mt-5 text-3xl sm:text-4xl">
+                      <em className="accent">{c.tagline}</em>
+                    </h3>
+                    <p className="text-cream/90 mt-4 text-[0.95rem] leading-relaxed">{c.body}</p>
+                    <ButtonLink href={c.href} variant="on-dark" className="mt-7">
+                      {c.cta}
+                    </ButtonLink>
                   </div>
-                )}
-              </div>
-            </li>
-          );
-        })}
-      </ul>
+                  {image && (
+                    <div className="bg-ivory ring-gold/70 relative order-first mx-auto aspect-[4/5] w-40 overflow-hidden rounded-xl ring-1 sm:order-last sm:w-auto">
+                      <Image
+                        src={image.src}
+                        alt={image.alt}
+                        fill
+                        sizes="(min-width: 1280px) 12rem, 10rem"
+                        className="object-contain p-1"
+                      />
+                    </div>
+                  )}
+                </div>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
     </section>
   );
 }

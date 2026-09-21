@@ -35,7 +35,7 @@ export default function PrivacyPolicyPage() {
             <h2 id={`${s.id}-h`} className="text-forest text-2xl sm:text-3xl">
               {s.title}
             </h2>
-            <div className="[&_code]:bg-champagne/50 mt-4 space-y-4 leading-relaxed [&_code]:rounded [&_code]:px-1.5 [&_li]:mt-2 [&_ul]:list-disc [&_ul]:space-y-1 [&_ul]:pl-6">
+            <div className="[&_code]:bg-sand mt-4 space-y-4 leading-relaxed [&_code]:rounded [&_code]:px-1.5 [&_li]:mt-2 [&_ul]:list-disc [&_ul]:space-y-1 [&_ul]:pl-6">
               {s.body}
             </div>
           </section>

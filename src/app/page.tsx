@@ -1,16 +1,16 @@
 import type { Metadata } from "next";
-import { BrewToggle } from "@/components/sections/brew-toggle";
-import { BusinessBand } from "@/components/sections/business-band";
+import { BrewSteps } from "@/components/sections/brew-steps";
 import { ChooseYourCup } from "@/components/sections/choose-your-cup";
-import { EditorialBlocks } from "@/components/sections/editorial-blocks";
+import { ContactBand } from "@/components/sections/contact-band";
 import { FeaturedProducts } from "@/components/sections/featured-products";
 import { Hero } from "@/components/sections/hero";
-import { TrustStrip } from "@/components/sections/trust-strip";
-import { SectionHeading } from "@/components/ui/section-heading";
+import { MakingTrack } from "@/components/sections/making-track";
+import { Origin } from "@/components/sections/origin";
+import { Story } from "@/components/sections/story";
 import { getCatalog } from "@/lib/data/products";
 
 export const metadata: Metadata = {
-  title: { absolute: "SAMRIN Tea — Factory-fresh Ruhuna tea, straight from the source" },
+  title: { absolute: "SAMRIN Tea — A cup with backbone. Factory-fresh Ruhuna tea" },
   alternates: { canonical: "/" },
 };
 
@@ -24,24 +24,13 @@ export default async function HomePage() {
   return (
     <>
       <Hero strong={strong} bopf={bopf} />
-      <TrustStrip />
+      <Origin />
+      <MakingTrack />
+      <BrewSteps />
       <ChooseYourCup strong={strong} bopf={bopf} />
       <FeaturedProducts products={products} />
-      <EditorialBlocks />
-      <section aria-labelledby="brew-heading" className="container-page mt-28">
-        <SectionHeading
-          eyebrow="05 — How to brew"
-          title={
-            <span id="brew-heading">
-              Water meets leaf. <em className="accent">Keep it simple.</em>
-            </span>
-          }
-        />
-        <div className="mt-10">
-          <BrewToggle />
-        </div>
-      </section>
-      <BusinessBand />
+      <Story />
+      <ContactBand />
     </>
   );
 }
