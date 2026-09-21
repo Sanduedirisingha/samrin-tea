@@ -25,10 +25,30 @@ export const siteImages = {
   /** Origin section: large tile ("Nakiyadeniya, Galle district"). */
   originMain: null,
   /** Making strip: one photo per card, in order. */
-  making1: null,
-  making2: null,
-  making3: null,
-  making4: null,
+  making1: {
+    src: "/images/site/making-withering.jpg",
+    alt: "Dark tea leaves beside a scoop, with a glass teapot of brewed tea seen from above",
+    width: 1600,
+    height: 1080,
+  },
+  making2: {
+    src: "/images/site/making-sifting.jpg",
+    alt: "A hand holding a fine mesh sieve of dried leaves and seeds over a metal tray",
+    width: 1600,
+    height: 1080,
+  },
+  making3: {
+    src: "/images/site/making-packed.jpg",
+    alt: "Tea leaves travelling along a conveyor in a factory",
+    width: 1600,
+    height: 1080,
+  },
+  making4: {
+    src: "/images/site/making-tea-bags.jpg",
+    alt: "Tea bags beside a glass cup of black tea and a sugar cube",
+    width: 1600,
+    height: 1080,
+  },
   /** Story page: the three photo tiles. */
   storyRuhuna: null,
   storyFactory: null,

@@ -42,8 +42,8 @@ function Card({ index, step }: { index: number; step: (typeof steps)[number] }) 
         <span className="text-gold font-serif text-5xl">{String(index + 1).padStart(2, "0")}</span>
         <Icon aria-hidden className="text-champagne size-7" strokeWidth={1.4} />
       </div>
-      <div className="hatch border-paper/10 relative mt-6 h-32 overflow-hidden rounded-xl border sm:h-40">
-        <SlotImage slot={`making${index + 1}` as SlotId} sizes="30rem" />
+      <div className="hatch border-paper/10 relative mt-6 h-36 overflow-hidden rounded-xl border sm:h-44">
+        <SlotImage slot={`making${index + 1}` as SlotId} sizes="30rem" overlay={false} />
       </div>
       <h3 className="mt-6 font-serif text-2xl">{step.title}</h3>
       <p className="text-paper/75 mt-2 text-[0.95rem] leading-relaxed">{step.body}</p>
