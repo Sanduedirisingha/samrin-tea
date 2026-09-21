@@ -106,10 +106,10 @@ export const siteImages = {
     height: 510,
   },
   storyCup: {
-    src: "/images/site/brew-5-enjoy.webp",
-    alt: "A white teacup and saucer on a wooden tray with an open book, candles and small white flowers",
-    width: 1400,
-    height: 946,
+    src: "/images/site/story-cup.webp",
+    alt: "A clear glass cup of amber tea on a square of woven burlap, with fresh green leaves beside it",
+    width: 1600,
+    height: 1080,
   },
 } satisfies Record<string, SiteImage | null>;
 
