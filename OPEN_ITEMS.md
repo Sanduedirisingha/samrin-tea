@@ -30,6 +30,18 @@ where the orb warms from green to amber, and a shop with a left filter sidebar. 
   internal-note cards ("What we don't say yet", "Language") were replaced with public-facing statements from the approved copy.
 - The prototype's in-page shop/product/contact sections map to the real routes (`/shop`, `/shop/[slug]`, `/contact`); its inline enquiry form and map were not reproduced.
 
+## 00. Admin dashboard
+
+- **Login.** `.env.local` was given a generated dev password for `admin@samrin.local`. **Change ADMIN_EMAIL / ADMIN_PASSWORD before any real use**, and use a long unique password. There is a single admin account; staff
+  accounts, roles and password reset are not built.
+- **Image storage is a local folder** (`./uploads`), as chosen. Most hosts don't keep files written at runtime, so **switch to cloud storage (S3, Cloudinary or Vercel Blob) before going live**
+  (one file: `src/lib/admin/storage.ts`). Back up `./uploads` if you keep using it.
+- **Login throttling is in memory** (per server instance). Behind several instances or serverless, add a shared store.
+- **No emails.** Changing an order's status does not notify the customer; there is no stock counting beyond the in/out-of-stock switch.
+- **Products on orders can't be deleted**, only hidden (keeps order history intact).
+- **Settings** (delivery fee, contact email, WhatsApp) are stored in the database and override the env values; the hotline, addresses and legal text are still code.
+- Removed `src/app/shop/loading.tsx`: its skeleton made missing products return HTTP 200 (a soft 404). Missing and hidden products now return 404.
+
 ## A. Blockers to verify before anyone relies on the site
 
 1. **Neon was not tested.** No Neon connection string was available while building. Everything was built

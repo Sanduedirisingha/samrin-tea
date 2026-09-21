@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { CheckoutForm } from "@/components/forms/checkout-form";
 import { PageHeader } from "@/components/sections/page-header";
-import { getDeliveryFeeMinor } from "@/lib/env";
+import { getDeliveryFeeMinor } from "@/lib/data/settings";
 import { getPaymentProvider } from "@/lib/payments";
 
 export const metadata: Metadata = {
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 // Delivery fee comes from env at request time, so don't bake it in at build.
 export const dynamic = "force-dynamic";
 
-export default function CheckoutPage() {
+export default async function CheckoutPage() {
   const provider = getPaymentProvider();
   return (
     <>
@@ -28,7 +28,7 @@ export default function CheckoutPage() {
       <div className="container-page">
         <CheckoutForm
           payment={{ label: provider.label, description: provider.description }}
-          deliveryFeeMinor={getDeliveryFeeMinor()}
+          deliveryFeeMinor={await getDeliveryFeeMinor()}
         />
       </div>
     </>

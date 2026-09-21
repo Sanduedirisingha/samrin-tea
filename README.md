@@ -90,6 +90,28 @@ src/lib/                  env, site-config, format, districts, cart/, payments/,
 Design tokens (colours from the brand guide, fonts) live in `src/app/globals.css` under `@theme`.
 Burgundy (`strong`) is used **only** to identify the Strong range.
 
+## Admin dashboard (WooCommerce-style)
+
+Open <http://localhost:3000/admin> and sign in with `ADMIN_EMAIL` / `ADMIN_PASSWORD` from `.env.local` (leave them empty to switch the admin off).
+
+| Section   | What you can do                                                                                                                       |
+| --------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| Dashboard | Sales total, order counts, new enquiries, recent orders                                                                               |
+| Orders    | Search and filter, view items/customer/address, change order status, payment status, payment reference and internal notes, export CSV |
+| Products  | Add, edit, hide, mark out of stock, delete. Every product field, the "Product details" rows, sort order, and **image upload**         |
+| Customers | One row per email, built from orders                                                                                                  |
+| Enquiries | Contact-form messages, filter by type/status, mark handled                                                                            |
+| Settings  | Flat delivery fee, contact email and WhatsApp number (override the env values)                                                        |
+
+**Product images.** Drag files onto the image box or choose files (JPG, PNG or WebP, up to 6 MB). The server checks the real file
+content, resizes to at most 1600 px, converts to WebP, strips metadata and saves it to `./uploads/products/<id>.webp`
+(git-ignored; override with `UPLOAD_DIR`). It is served by `/uploads/...`. The first image is the main one. Removing an image or deleting a
+product deletes the file. To use cloud storage later, replace `saveProductImage` / `removeUploadedImage` in `src/lib/admin/storage.ts`.
+
+**Security.** One admin, credentials from env (compared in constant time). Signed, expiring, HttpOnly session cookie. 5 failed logins per
+15 minutes per client are throttled. Every admin page, server action and API route re-checks the session (`requireAdmin()`), the upload
+route also checks the request origin, and CSV cells are protected against spreadsheet formula injection. `/admin` is `noindex` and disallowed in robots.txt.
+
 ## Light and dark mode
 
 A sun/moon button in the header switches themes. The choice is saved in `localStorage` (`samrin_theme`); on a first visit the site follows the

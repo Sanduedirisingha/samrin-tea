@@ -11,6 +11,7 @@ const { createdAt, updatedAt, ...catalogColumns } = getTableColumns(products);
 
 /** Product data changes rarely; cache for a minute and allow tag-based revalidation. */
 export const CATALOG_REVALIDATE_SECONDS = 60;
+export const PRODUCTS_TAG = "products";
 
 export const getCatalog = unstable_cache(
   async (): Promise<CatalogProduct[]> =>
@@ -20,7 +21,7 @@ export const getCatalog = unstable_cache(
       .where(eq(products.isActive, true))
       .orderBy(asc(products.sortOrder), asc(products.name)),
   ["catalog:v1"],
-  { revalidate: CATALOG_REVALIDATE_SECONDS, tags: ["products"] },
+  { revalidate: CATALOG_REVALIDATE_SECONDS, tags: [PRODUCTS_TAG] },
 );
 
 export async function getProductBySlug(slug: string): Promise<CatalogProduct | undefined> {

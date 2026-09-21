@@ -16,6 +16,9 @@ next-env.d.ts
 # local dev database (embedded Postgres, see `npm run db:local`)
 /.local-pg/
 
+# uploaded product images (admin dashboard)
+/uploads/
+
 # client source files (large binaries) — keep locally, not in git
 /reference/*
 !/reference/README.md

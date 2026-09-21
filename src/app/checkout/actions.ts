@@ -4,7 +4,7 @@ import { eq, inArray, sql } from "drizzle-orm";
 import { redirect } from "next/navigation";
 import { getDb } from "@/db";
 import { orderItems, orders, products } from "@/db/schema";
-import { getDeliveryFeeMinor } from "@/lib/env";
+import { getDeliveryFeeMinor } from "@/lib/data/settings";
 import { getPaymentProvider } from "@/lib/payments";
 import { isPurchasable } from "@/lib/product-utils";
 import { shopConfig } from "@/lib/site-config";
@@ -124,7 +124,7 @@ export async function placeOrder(_prev: CheckoutState, formData: FormData): Prom
 
   const subtotalLkr = lines.reduce((sum, l) => sum + l.lineTotalLkr, 0);
   // No invented delivery fee: unset means "confirmed by our team" and nothing is charged here.
-  const deliveryFeeLkr = getDeliveryFeeMinor() ?? 0;
+  const deliveryFeeLkr = (await getDeliveryFeeMinor()) ?? 0;
   const totalLkr = subtotalLkr + deliveryFeeLkr;
   const provider = getPaymentProvider();
 

@@ -5,6 +5,7 @@ import { PageHeader } from "@/components/sections/page-header";
 import { AccordionItem } from "@/components/ui/accordion";
 import { contactFaq } from "@/content/faq";
 import { getCatalog } from "@/lib/data/products";
+import { getStoreSettings } from "@/lib/data/settings";
 import { createFormToken } from "@/lib/form-guard";
 import { siteConfig } from "@/lib/site-config";
 import { inquiryTypeValues, type InquiryTypeValue } from "@/lib/validators/contact";
@@ -29,6 +30,7 @@ export default async function ContactPage({ searchParams }: PageProps<"/contact"
     : "general";
   const productSlug = first(sp.product);
   const catalog = await getCatalog();
+  const store = await getStoreSettings();
   const match = catalog.find((p) => p.slug === productSlug);
 
   const { factory, manufacturer, distributor } = siteConfig;
@@ -76,27 +78,27 @@ export default async function ContactPage({ searchParams }: PageProps<"/contact"
                   </a>
                 </div>
               </li>
-              {siteConfig.email && (
+              {store.contactEmail && (
                 <li className="flex gap-4 max-md:flex-col max-md:items-center max-md:gap-1">
                   <Mail aria-hidden className="text-gold-ink mt-1 size-5 shrink-0" />
                   <div>
                     <p className="text-muted text-sm">Email</p>
                     <a
-                      href={`mailto:${siteConfig.email}`}
+                      href={`mailto:${store.contactEmail}`}
                       className="text-heading font-medium hover:underline"
                     >
-                      {siteConfig.email}
+                      {store.contactEmail}
                     </a>
                   </div>
                 </li>
               )}
-              {siteConfig.whatsapp && (
+              {store.whatsappNumber && (
                 <li className="flex gap-4 max-md:flex-col max-md:items-center max-md:gap-1">
                   <MessageCircle aria-hidden className="text-gold-ink mt-1 size-5 shrink-0" />
                   <div>
                     <p className="text-muted text-sm">WhatsApp</p>
                     <a
-                      href={`https://wa.me/${siteConfig.whatsapp}`}
+                      href={`https://wa.me/${store.whatsappNumber}`}
                       className="text-heading font-medium hover:underline"
                     >
                       Chat with us

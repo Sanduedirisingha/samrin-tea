@@ -16,6 +16,12 @@ const serverSchema = z.object({
     .transform((v) => (v && v.trim() !== "" ? Number(v) : null))
     .pipe(z.number().min(0).nullable()),
   FORM_SECRET: z.string().optional(),
+  /** Admin dashboard login. Leave unset to disable /admin entirely. */
+  ADMIN_EMAIL: z.string().trim().optional(),
+  ADMIN_PASSWORD: z.string().optional(),
+  ADMIN_SESSION_SECRET: z.string().optional(),
+  /** Where uploaded product images are stored (default ./uploads, git-ignored). */
+  UPLOAD_DIR: z.string().optional(),
 });
 
 export type ServerEnv = z.infer<typeof serverSchema>;
@@ -45,8 +51,9 @@ export function getServerEnv(): ServerEnv {
   return cached;
 }
 
-/** Delivery fee in minor units (cents), or null when no fee is configured. */
-export function getDeliveryFeeMinor(): number | null {
-  const fee = getServerEnv().DELIVERY_FEE_LKR;
-  return fee === null ? null : Math.round(fee * 100);
+/** Admin credentials, or null when the dashboard is not configured. */
+export function getAdminEnv(): { email: string; password: string } | null {
+  const { ADMIN_EMAIL, ADMIN_PASSWORD } = getServerEnv();
+  if (!ADMIN_EMAIL || !ADMIN_PASSWORD) return null;
+  return { email: ADMIN_EMAIL, password: ADMIN_PASSWORD };
 }

@@ -4,6 +4,7 @@ import { CartProvider } from "@/components/cart/cart-provider";
 import { ToastProvider } from "@/components/cart/toast";
 import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
+import { SiteShell } from "@/components/layout/site-shell";
 import { JsonLd } from "@/components/seo/json-ld";
 import { getCatalog } from "@/lib/data/products";
 import { toCartItem } from "@/lib/product-utils";
@@ -93,19 +94,11 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
       <body className="flex min-h-dvh flex-col">
-        <a
-          href="#main"
-          className="focus:bg-forest focus:text-ivory sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:rounded-full focus:px-5 focus:py-3"
-        >
-          Skip to content
-        </a>
         <ToastProvider>
           <CartProvider catalog={catalog}>
-            <Header />
-            <main id="main" className="flex-1">
+            <SiteShell header={<Header />} footer={<Footer />}>
               {children}
-            </main>
-            <Footer />
+            </SiteShell>
           </CartProvider>
         </ToastProvider>
         <JsonLd data={organizationJsonLd} />

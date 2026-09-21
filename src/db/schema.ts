@@ -91,6 +91,8 @@ export const orders = pgTable(
     deliveryFeeLkr: integer("delivery_fee_lkr").notNull().default(0),
     totalLkr: integer("total_lkr").notNull(),
     idempotencyKey: text("idempotency_key").notNull(),
+    /** Internal notes written in the admin dashboard; never shown to customers. */
+    adminNotes: text("admin_notes"),
     ...timestamps,
   },
   (t) => [uniqueIndex("orders_idempotency_key_idx").on(t.idempotencyKey)],
@@ -134,3 +136,10 @@ export const inquiries = pgTable(
   },
   (t) => [index("inquiries_ip_created_idx").on(t.ipHash, t.createdAt)],
 );
+
+/** Editable store settings (admin → Settings). One row per key; values are JSON. */
+export const settings = pgTable("settings", {
+  key: text("key").primaryKey(),
+  value: jsonb("value").$type<unknown>().notNull(),
+  updatedAt: timestamp("updated_at", { withTimezone: true }).notNull().defaultNow(),
+});
