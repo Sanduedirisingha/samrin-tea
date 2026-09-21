@@ -56,7 +56,7 @@ export function ChooseYourCup({
                 key={c.range}
                 className={`on-dark reveal relative overflow-hidden rounded-3xl ${c.surface}`}
               >
-                <div className="grid grid-cols-1 items-end gap-8 p-7 sm:grid-cols-[1fr_9rem] sm:gap-6 sm:p-8 xl:grid-cols-[1fr_12rem] xl:p-10">
+                <div className="grid h-full grid-cols-1 items-center gap-8 p-7 sm:grid-cols-[1fr_9rem] sm:gap-6 sm:p-8 xl:grid-cols-[1fr_12rem] xl:p-10">
                   <div className="pb-2">
                     <VariantChip range={c.range} onDark />
                     <h3 className="text-cream mt-5 text-3xl sm:text-4xl">
@@ -68,7 +68,7 @@ export function ChooseYourCup({
                     </ButtonLink>
                   </div>
                   {image && (
-                    <div className="bg-ivory ring-gold/70 relative order-first mx-auto aspect-[4/5] w-40 overflow-hidden rounded-xl ring-1 sm:order-last sm:w-auto">
+                    <div className="bg-ivory ring-gold/70 relative order-first mx-auto aspect-[4/5] w-40 overflow-hidden rounded-xl ring-1 sm:order-last sm:mx-0 sm:w-full">
                       <Image
                         src={image.src}
                         alt={image.alt}
