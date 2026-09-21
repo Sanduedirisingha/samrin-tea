@@ -93,9 +93,24 @@ export const siteImages = {
     height: 1080,
   },
   /** Story page: the three photo tiles. */
-  storyRuhuna: null,
-  storyFactory: null,
-  storyCup: null,
+  storyRuhuna: {
+    src: "/images/site/hero-leaves.jpg",
+    alt: "Fresh tea leaves in bright sunlight on a tea bush",
+    width: 1920,
+    height: 1080,
+  },
+  storyFactory: {
+    src: "/images/site/origin-factory.webp",
+    alt: "A white two-storey factory building with a blue roof, seen across a paved yard with trees around it",
+    width: 680,
+    height: 510,
+  },
+  storyCup: {
+    src: "/images/site/brew-5-enjoy.webp",
+    alt: "A white teacup and saucer on a wooden tray with an open book, candles and small white flowers",
+    width: 1400,
+    height: 946,
+  },
 } satisfies Record<string, SiteImage | null>;
 
 export type SlotId = keyof typeof siteImages;
