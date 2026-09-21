@@ -24,12 +24,14 @@ const instrument = Instrument_Sans({
 // Fallbacks so the pack's trilingual line (තේ · TEA · தேயிலை) renders correctly.
 const sinhala = Noto_Sans_Sinhala({
   subsets: ["sinhala"],
+  weight: "500",
   variable: "--font-sinhala",
   display: "swap",
   preload: false,
 });
 const tamil = Noto_Sans_Tamil({
   subsets: ["tamil"],
+  weight: "500",
   variable: "--font-tamil",
   display: "swap",
   preload: false,

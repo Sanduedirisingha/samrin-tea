@@ -15,6 +15,8 @@ const nextConfig: NextConfig = {
     formats: ["image/avif", "image/webp"],
     qualities: [75, 85],
   },
+  // ~10 KB of Tailwind CSS: inlining removes a render-blocking request (better FCP/LCP).
+  experimental: { inlineCss: true },
   // `pg` is only used for the optional local dev database.
   serverExternalPackages: ["pg"],
   async headers() {

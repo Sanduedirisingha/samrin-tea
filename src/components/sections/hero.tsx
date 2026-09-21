@@ -11,7 +11,7 @@ export function Hero({ strong, bopf }: { strong?: CatalogProduct; bopf?: Catalog
     <section className="on-dark bg-forest text-cream relative isolate overflow-hidden">
       <GoldCurves />
       <div className="container-page relative grid items-center gap-12 py-16 sm:py-24 lg:grid-cols-[1.1fr_1fr] lg:gap-16">
-        <div className="fade-up">
+        <div>
           <PlaqueBadge>Factory Fresh</PlaqueBadge>
           <h1 className="text-cream mt-8 text-[2.6rem] leading-[1.05] sm:text-6xl lg:text-7xl">
             Factory-fresh Ruhuna tea,{" "}
@@ -31,7 +31,7 @@ export function Hero({ strong, bopf }: { strong?: CatalogProduct; bopf?: Catalog
           </div>
         </div>
 
-        <ul className="fade-up grid grid-cols-2 gap-4 sm:gap-6" style={{ animationDelay: "120ms" }}>
+        <ul className="grid grid-cols-2 gap-4 sm:gap-6">
           {packs.map((p, i) => (
             <li key={p.id} className={i === 1 ? "mt-8 sm:mt-12" : ""}>
               <div className="bg-ivory ring-gold/60 relative aspect-[4/5] overflow-hidden rounded-2xl shadow-[0_24px_48px_-20px_rgb(0_0_0/0.6)] ring-1">
