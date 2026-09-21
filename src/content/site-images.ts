@@ -23,7 +23,12 @@ export type SiteImage = {
 
 export const siteImages = {
   /** Origin section: large tile ("Nakiyadeniya, Galle district"). */
-  originMain: null,
+  originMain: {
+    src: "/images/site/origin-factory.webp",
+    alt: "A white two-storey factory building with a blue roof, seen across a paved yard with trees around it",
+    width: 680,
+    height: 510,
+  },
   /** Making strip: one photo per card, in order. */
   making1: {
     src: "/images/site/making-withering.jpg",
