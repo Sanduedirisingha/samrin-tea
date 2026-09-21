@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { getSlot } from "@/content/site-images";
 import { ButtonLink } from "@/components/ui/button";
 import { Trilingual } from "@/components/ui/trilingual";
 import type { CatalogProduct } from "@/lib/product-utils";
@@ -6,12 +7,30 @@ import { siteConfig } from "@/lib/site-config";
 
 /** Hero from the homepage design: giant serif headline, copper orb, packs drifting in front of it. */
 export function Hero({ strong, bopf }: { strong?: CatalogProduct; bopf?: CatalogProduct }) {
+  const photo = getSlot("heroMain");
   const packs = [strong, bopf].filter((p): p is CatalogProduct => Boolean(p?.images[0]));
   return (
     <section
       id="hero"
       className="on-dark text-paper relative isolate overflow-hidden bg-gradient-to-b from-[#1a2b22] via-[#14271d] to-[#0e1a14]"
     >
+      {photo && (
+        <div aria-hidden className="absolute inset-0 -z-10">
+          <Image
+            src={photo.src}
+            alt=""
+            fill
+            priority
+            quality={70}
+            sizes="100vw"
+            className="[mask-image:linear-gradient(to_right,transparent_10%,black_60%)] object-cover object-[70%_50%] opacity-95 max-lg:[mask-image:none]"
+          />
+          {/* Tint the photo into the brand green, keep the headline side dark, and melt into the next section */}
+          <div className="bg-forest/20 absolute inset-0 mix-blend-multiply" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0e1a14] via-[#0e1a14]/55 to-transparent max-lg:from-[#0e1a14]/85 max-lg:via-[#0e1a14]/70 max-lg:to-[#0e1a14]/45" />
+          <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#12241a] to-transparent" />
+        </div>
+      )}
       <div className="container-page grid min-h-[calc(100svh-4rem)] items-center gap-14 py-16 lg:grid-cols-[1.05fr_1fr] lg:py-24">
         <div>
           <p className="text-sage flex items-center gap-3 text-xs font-medium tracking-[0.22em] uppercase">

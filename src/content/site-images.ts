@@ -22,6 +22,13 @@ export type SiteImage = {
 };
 
 export const siteImages = {
+  /** Home hero: full-bleed background, decorative (faded and tinted behind the headline). */
+  heroMain: {
+    src: "/images/site/hero-leaves.jpg",
+    alt: "Fresh tea leaves in bright sunlight on a tea bush",
+    width: 1920,
+    height: 1080,
+  },
   /** Origin section: large tile ("Nakiyadeniya, Galle district"). */
   originMain: {
     src: "/images/site/origin-factory.webp",
