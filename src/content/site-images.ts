@@ -36,6 +36,31 @@ export const siteImages = {
     width: 680,
     height: 510,
   },
+  /** Brewing sequence: one photo per step (steps 1–4; step 5 shows the orb). */
+  brew1: {
+    src: "/images/site/brew-1-rinse.webp",
+    alt: "Hot water running from a tap into a white mug held over a sink",
+    width: 1009,
+    height: 1200,
+  },
+  brew2: {
+    src: "/images/site/brew-2-add-tea.webp",
+    alt: "Tea being poured from a white teapot into a cup on a saucer",
+    width: 1200,
+    height: 810,
+  },
+  brew3: {
+    src: "/images/site/brew-3-boiling-water.webp",
+    alt: "A steel kettle pouring boiling water into a mug with a tea bag",
+    width: 960,
+    height: 1200,
+  },
+  brew4: {
+    src: "/images/site/brew-4-brew.webp",
+    alt: "Boiling water poured onto a tea bag in a white cup, with a bowl of loose tea beside it",
+    width: 960,
+    height: 1200,
+  },
   /** Making strip: one photo per card, in order. */
   making1: {
     src: "/images/site/making-withering.jpg",

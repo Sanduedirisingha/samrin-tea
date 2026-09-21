@@ -1,20 +1,42 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { BrewToggle } from "@/components/sections/brew-toggle";
 import { ButtonLink } from "@/components/ui/button";
 import { SectionHeading } from "@/components/ui/section-heading";
+import { getSlot, type SlotId } from "@/content/site-images";
 import { cn } from "@/lib/cn";
 import { PIN_QUERY, useMediaQuery } from "@/lib/use-media-query";
 
-/** Wording follows the approved loose-leaf brewing artwork. */
-const steps = [
-  { title: "Rinse the cup", body: "Rinse the cup with hot water and pour out the water." },
-  { title: "Add the tea", body: "Add 2 g of tea (about 1 teaspoon per cup)." },
-  { title: "Add boiling water", body: "Add 200 ml of boiling water at 100°C." },
-  { title: "Brew", body: "Brew for 3–5 minutes, or as preferred." },
+/** Wording follows the approved loose-leaf brewing artwork. Step 5 has no photo: the orb takes over. */
+const steps: { title: string; body: string; slot?: SlotId; position?: string }[] = [
+  {
+    title: "Rinse the cup",
+    body: "Rinse the cup with hot water and pour out the water.",
+    slot: "brew1",
+    position: "object-[50%_45%]",
+  },
+  {
+    title: "Add the tea",
+    body: "Add 2 g of tea (about 1 teaspoon per cup).",
+    slot: "brew2",
+    position: "object-[32%_50%]",
+  },
+  {
+    title: "Add boiling water",
+    body: "Add 200 ml of boiling water at 100°C.",
+    slot: "brew3",
+    position: "object-[45%_50%]",
+  },
+  {
+    title: "Brew",
+    body: "Brew for 3–5 minutes, or as preferred.",
+    slot: "brew4",
+    position: "object-[55%_55%]",
+  },
   { title: "Filter and enjoy", body: "Filter, and enjoy." },
-] as const;
+];
 
 const NAV = 64;
 const COLD = [0x24, 0x40, 0x2f] as const; // deep green
@@ -24,8 +46,8 @@ const mix = (p: number) =>
   `rgb(${COLD.map((c, i) => Math.round(c + (WARM[i] - c) * p)).join(",")})`;
 
 /**
- * "Water meets leaf" — the orb warms from green to amber as the steps advance (pinned on wide
- * screens), then the approved brewing artwork for loose tea and tea bags.
+ * "Water meets leaf" — a photo per step crossfades as you scroll (pinned on wide screens) while
+ * the orb behind it warms from green to amber, then the approved brewing artwork.
  */
 export function BrewSteps() {
   const pinned = useMediaQuery(PIN_QUERY);
@@ -81,12 +103,36 @@ export function BrewSteps() {
           <div className="container-page grid items-center gap-12 lg:grid-cols-2">
             {pinned && (
               <div className="grid place-items-center">
-                <div
-                  ref={orb}
-                  aria-hidden
-                  className="orb aspect-square w-[min(28rem,80%)]"
-                  style={{ ["--orb" as string]: mix(0) }}
-                />
+                <div className="relative aspect-[4/5] w-[min(24rem,78%)]">
+                  <div
+                    ref={orb}
+                    aria-hidden
+                    className="orb absolute top-1/2 left-1/2 aspect-square w-[128%] -translate-x-1/2 -translate-y-1/2"
+                    style={{ ["--orb" as string]: mix(0) }}
+                  />
+                  {steps.map((s, i) => {
+                    const img = s.slot ? getSlot(s.slot) : null;
+                    if (!img) return null;
+                    return (
+                      <div
+                        key={s.title}
+                        aria-hidden={i !== active}
+                        className={cn(
+                          "ring-gold/60 absolute inset-0 overflow-hidden rounded-3xl shadow-[0_30px_60px_-20px_rgb(0_0_0/0.7)] ring-1 transition-opacity duration-500",
+                          i === active ? "opacity-100" : "opacity-0",
+                        )}
+                      >
+                        <Image
+                          src={img.src}
+                          alt={img.alt}
+                          fill
+                          sizes="24rem"
+                          className={cn("object-cover", s.position)}
+                        />
+                      </div>
+                    );
+                  })}
+                </div>
               </div>
             )}
             <div>
@@ -120,20 +166,34 @@ export function BrewSteps() {
                 </div>
               ) : (
                 <ol className="mt-10 space-y-4">
-                  {steps.map((s, i) => (
-                    <li
-                      key={s.title}
-                      className="border-paper/10 flex gap-5 rounded-2xl border bg-[#16281d] p-5"
-                    >
-                      <span className="text-gold font-serif text-3xl">
-                        {String(i + 1).padStart(2, "0")}
-                      </span>
-                      <div>
-                        <h3 className="font-serif text-xl">{s.title}</h3>
-                        <p className="text-paper/75 mt-1 text-[0.95rem]">{s.body}</p>
-                      </div>
-                    </li>
-                  ))}
+                  {steps.map((s, i) => {
+                    const img = s.slot ? getSlot(s.slot) : null;
+                    return (
+                      <li
+                        key={s.title}
+                        className="border-paper/10 flex items-center gap-4 rounded-2xl border bg-[#16281d] p-4"
+                      >
+                        {img && (
+                          <div className="relative size-20 shrink-0 overflow-hidden rounded-xl">
+                            <Image
+                              src={img.src}
+                              alt={img.alt}
+                              fill
+                              sizes="5rem"
+                              className={cn("object-cover", s.position)}
+                            />
+                          </div>
+                        )}
+                        <span className="text-gold font-serif text-3xl">
+                          {String(i + 1).padStart(2, "0")}
+                        </span>
+                        <div>
+                          <h3 className="font-serif text-xl">{s.title}</h3>
+                          <p className="text-paper/75 mt-1 text-[0.95rem]">{s.body}</p>
+                        </div>
+                      </li>
+                    );
+                  })}
                 </ol>
               )}
               <div className="mt-8">
