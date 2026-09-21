@@ -94,8 +94,15 @@ export function Footer() {
             {siteConfig.packerRegistration}
           </p>
           <p>
-            © {new Date().getFullYear()} Pure Ceylon black tea from Ruhuna, Sri Lanka | Design by
-            Olutek Digital Solutions
+            © {new Date().getFullYear()} Samrin Tea, Sri Lanka | Design by{" "}
+            <a
+              href="https://olutek.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-heading underline underline-offset-4"
+            >
+              Olutek Digital Solutions
+            </a>
           </p>
         </div>
       </div>
