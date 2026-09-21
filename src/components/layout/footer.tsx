@@ -93,7 +93,10 @@ export function Footer() {
             © {new Date().getFullYear()} SAMRIN Tea · {siteConfig.mfNumber} · Packer registration{" "}
             {siteConfig.packerRegistration}
           </p>
-          <p>Pure Ceylon black tea from Ruhuna, Sri Lanka</p>
+          <p>
+            © {new Date().getFullYear()} Pure Ceylon black tea from Ruhuna, Sri Lanka | Design by
+            Olutek Digital Solutions
+          </p>
         </div>
       </div>
     </footer>
