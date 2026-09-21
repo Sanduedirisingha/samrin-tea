@@ -36,7 +36,7 @@ export const siteImages = {
     width: 680,
     height: 510,
   },
-  /** Brewing sequence: one photo per step (steps 1–4; step 5 shows the orb). */
+  /** Brewing sequence: one photo per step (one per step). */
   brew1: {
     src: "/images/site/brew-1-rinse.webp",
     alt: "Hot water running from a tap into a white mug held over a sink",
@@ -60,6 +60,12 @@ export const siteImages = {
     alt: "Boiling water poured onto a tea bag in a white cup, with a bowl of loose tea beside it",
     width: 960,
     height: 1200,
+  },
+  brew5: {
+    src: "/images/site/brew-5-enjoy.webp",
+    alt: "A white teacup and saucer on a wooden tray with an open book, candles and small white flowers",
+    width: 1400,
+    height: 946,
   },
   /** Making strip: one photo per card, in order. */
   making1: {

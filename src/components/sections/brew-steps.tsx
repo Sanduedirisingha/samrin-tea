@@ -9,7 +9,7 @@ import { getSlot, type SlotId } from "@/content/site-images";
 import { cn } from "@/lib/cn";
 import { PIN_QUERY, useMediaQuery } from "@/lib/use-media-query";
 
-/** Wording follows the approved loose-leaf brewing artwork. Step 5 has no photo: the orb takes over. */
+/** Wording follows the approved loose-leaf brewing artwork. Every step has a photo. */
 const steps: { title: string; body: string; slot?: SlotId; position?: string }[] = [
   {
     title: "Rinse the cup",
@@ -35,7 +35,12 @@ const steps: { title: string; body: string; slot?: SlotId; position?: string }[]
     slot: "brew4",
     position: "object-[55%_55%]",
   },
-  { title: "Filter and enjoy", body: "Filter, and enjoy." },
+  {
+    title: "Filter and enjoy",
+    body: "Filter, and enjoy.",
+    slot: "brew5",
+    position: "object-[58%_50%]",
+  },
 ];
 
 const NAV = 80;
@@ -127,6 +132,7 @@ export function BrewSteps() {
                           alt={img.alt}
                           fill
                           sizes="28rem"
+                          loading="eager"
                           className={cn("object-cover", s.position)}
                         />
                       </div>
