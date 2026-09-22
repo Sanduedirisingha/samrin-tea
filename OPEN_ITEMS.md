@@ -44,14 +44,15 @@ where the orb warms from green to amber, and a shop with a left filter sidebar. 
 
 ## A. Blockers to verify before anyone relies on the site
 
-1. **Neon was not tested.** No Neon connection string was available while building. Everything was built
-   for Neon (`@neondatabase/serverless` WebSocket Pool + `drizzle-orm/neon-serverless`, chosen because
-   `neon-http` cannot run interactive transactions) but tested end-to-end against a **local Postgres**
-   (`npm run db:local`) through the `pg` driver. The Neon code path type-checks and builds, and is selected
-   automatically for any non-localhost `DATABASE_URL`, but it has **not been exercised**.
-   → Put the pooled dev-branch URL in `.env.local`, then run `npm run db:migrate && npm run db:seed`,
-   place a test order and confirm it appears in Drizzle Studio.
-   `.env.local` currently points at the local database — replace it.
+1. ~~**Neon was not tested.**~~ **Done (2026-09-22).** A Neon project ("SAMRIN Tea", id
+   `square-moon-35679039`, region `aws-ap-southeast-1`, org `org-dry-dew-95801159`) was created and a
+   `dev` branch provisioned. Both migrations applied cleanly, the 5 products were seeded, the storefront
+   and admin rendered correctly against it, and a real order (with order items, through an interactive
+   transaction over the WebSocket driver) was placed and read back successfully, confirming the Neon
+   code path (`@neondatabase/serverless` + `drizzle-orm/neon-serverless`) works end-to-end. The test
+   order was deleted afterwards. `.env.local` still points at the local database for day-to-day dev; the
+   Neon dev-branch pooled connection string is in `.env.neon.local` (git-ignored) — copy it into
+   `.env.local` (or your deploy host's env vars) when you're ready to run against Neon for real.
 2. **Three pack images were not in the project folder** (only 4 of the 7 files arrived: logo EPS, prototype
    HTML, product DOCX, brand-guide DOCX). Missing: `1789963243155_image.png` (Strong 100 g),
    `1789963249562_image.png` (Premium BOPF 100 g), `1789963255502_image.png` (Premium BOPF 25 bags box).

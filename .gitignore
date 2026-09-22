@@ -19,6 +19,9 @@ next-env.d.ts
 # uploaded product images (admin dashboard)
 /uploads/
 
+# Neon CLI project link (local machine only, no secrets — just a project id)
+.neon
+
 # client source files (large binaries) — keep locally, not in git
 /reference/*
 !/reference/README.md
