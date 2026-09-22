@@ -2,16 +2,15 @@ import Image from "next/image";
 import { ButtonLink } from "@/components/ui/button";
 import { Trilingual } from "@/components/ui/trilingual";
 import { getSlot } from "@/content/site-images";
-import type { CatalogProduct } from "@/lib/product-utils";
 import { siteConfig } from "@/lib/site-config";
 
 /**
- * Hero: giant serif headline, copper orb and packs over a full-bleed leaf photo. Every colour
- * comes from the theme tokens, so it is a light hero in light mode and a dark hero in dark mode.
+ * Hero: giant serif headline, copper orb with a looping video inside it, over a full-bleed leaf
+ * photo. Every colour comes from the theme tokens, so it is a light hero in light mode and a dark
+ * hero in dark mode.
  */
-export function Hero({ strong, bopf }: { strong?: CatalogProduct; bopf?: CatalogProduct }) {
+export function Hero() {
   const photo = getSlot("heroMain");
-  const packs = [strong, bopf].filter((p): p is CatalogProduct => Boolean(p?.images[0]));
   return (
     <section
       id="hero"
@@ -65,32 +64,29 @@ export function Hero({ strong, bopf }: { strong?: CatalogProduct; bopf?: Catalog
         <div className="relative mx-auto aspect-square w-full max-w-[34rem]">
           <div aria-hidden className="border-line absolute inset-[6%] rounded-full border" />
           <div aria-hidden className="orb drift absolute inset-[18%]" />
-          <ul className="absolute inset-0">
-            {packs.map((p, i) => (
-              <li
-                key={p.id}
-                className={
-                  i === 0
-                    ? "absolute top-[22%] left-[2%] w-[46%]"
-                    : "absolute top-[6%] right-[0%] w-[46%]"
-                }
-              >
-                <div
-                  className="drift bg-surface-2 ring-gold/60 relative aspect-[4/5] overflow-hidden rounded-2xl shadow-[0_30px_60px_-20px_rgb(0_0_0/0.55)] ring-1"
-                  style={{ animationDelay: `${i * -3}s` }}
-                >
-                  <Image
-                    src={p.images[0].src}
-                    alt={p.images[0].alt}
-                    fill
-                    priority
-                    sizes="(min-width: 1024px) 16rem, 44vw"
-                    className="object-contain p-2"
-                  />
-                </div>
-              </li>
-            ))}
-          </ul>
+          <div className="ring-gold/60 absolute inset-[18%] overflow-hidden rounded-full ring-1">
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              poster="/videos/hero-tea-poster.jpg"
+              className="size-full object-cover"
+            >
+              <source src="/videos/hero-tea.mp4" type="video/mp4" />
+            </video>
+            {/* Sphere shading and glow above the video, so it reads as part of the orb */}
+            <div
+              aria-hidden
+              className="pointer-events-none absolute inset-0"
+              style={{
+                background:
+                  "radial-gradient(circle at 35% 30%, rgb(255 255 255 / 0.28) 0%, transparent 42%), radial-gradient(circle at 72% 78%, rgb(0 0 0 / 0.4) 0%, transparent 62%)",
+                boxShadow:
+                  "inset 0 0 0 1px rgb(217 139 52 / 0.35), inset 0 -30px 60px -30px rgb(0 0 0 / 0.45)",
+              }}
+            />
+          </div>
         </div>
       </div>
     </section>

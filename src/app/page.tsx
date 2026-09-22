@@ -23,7 +23,7 @@ export default async function HomePage() {
 
   return (
     <>
-      <Hero strong={strong} bopf={bopf} />
+      <Hero />
       <Origin />
       <MakingTrack />
       <BrewSteps />
