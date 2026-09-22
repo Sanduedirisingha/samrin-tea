@@ -36,3 +36,6 @@ npm-debug.log*
 
 # logs
 *.log
+
+.vercel
+.env*
