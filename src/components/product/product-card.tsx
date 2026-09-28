@@ -27,7 +27,7 @@ export function ProductCard({
   return (
     <article
       className={cn(
-        "group border-line bg-surface-2 shadow-card relative flex w-full flex-col overflow-hidden rounded-2xl border border-t-4 transition-shadow duration-300 hover:shadow-[0_16px_36px_-16px_rgb(4_40_16/0.35)]",
+        "group border-line bg-surface-2 shadow-card relative flex w-full flex-col overflow-hidden rounded-2xl border border-t-4 transition-[transform,box-shadow] duration-300 hover:shadow-[0_16px_36px_-16px_rgb(4_40_16/0.35)] motion-safe:hover:-translate-y-1",
         product.range === "strong" ? "border-t-strong" : "border-t-bopf",
       )}
     >

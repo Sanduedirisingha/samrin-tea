@@ -36,18 +36,24 @@ export function Hero() {
       )}
       <div className="container-page grid min-h-[calc(100svh-5rem)] items-center gap-14 py-16 lg:grid-cols-[1.05fr_1fr] lg:py-24">
         <div>
-          <p className="text-muted flex items-center gap-3 text-xs font-medium tracking-[0.22em] uppercase max-md:justify-center">
+          <p
+            className="fade-up text-muted flex items-center gap-3 text-xs font-medium tracking-[0.22em] uppercase max-md:justify-center"
+            style={{ animationDelay: "0.05s" }}
+          >
             <span aria-hidden className="bg-gold h-px w-8" />
             Pure Ceylon black tea · Ruhuna
           </p>
           <h1 className="text-heading mt-6 text-[3.1rem] leading-[0.98] sm:text-7xl lg:text-[6.5rem]">
             A cup with <em className="accent text-gold-ink block">backbone.</em>
           </h1>
-          <p className="text-ink/85 mt-8 max-w-md text-lg leading-relaxed">
+          <p
+            className="fade-up text-ink/85 mt-8 max-w-md text-lg leading-relaxed"
+            style={{ animationDelay: "0.18s" }}
+          >
             Factory-fresh Ruhuna tea, straight from the source. Single region, unblended, packed
             directly from the factory where it is made.
           </p>
-          <div className="mt-10 flex flex-wrap gap-3">
+          <div className="fade-up mt-10 flex flex-wrap gap-3" style={{ animationDelay: "0.3s" }}>
             <ButtonLink href="/shop" variant="on-dark" size="lg">
               Shop tea
             </ButtonLink>
@@ -55,37 +61,44 @@ export function Hero() {
               Business supply
             </ButtonLink>
           </div>
-          <div className="mt-10 space-y-2">
+          <div className="fade-up mt-10 space-y-2" style={{ animationDelay: "0.42s" }}>
             <Trilingual className="text-base" />
             <p className="text-muted text-xs tracking-[0.14em] uppercase">{siteConfig.tagline}</p>
           </div>
         </div>
 
-        <div className="relative mx-auto aspect-square w-full max-w-[34rem]">
-          <div aria-hidden className="border-line absolute inset-[6%] rounded-full border" />
-          <div aria-hidden className="orb drift absolute inset-[18%]" />
-          <div className="ring-gold/60 absolute inset-[18%] overflow-hidden rounded-full ring-1">
-            <video
-              autoPlay
-              loop
-              muted
-              playsInline
-              poster="/videos/hero-tea-poster.jpg"
-              className="size-full object-cover"
-            >
-              <source src="/videos/hero-tea.mp4" type="video/mp4" />
-            </video>
-            {/* Sphere shading and glow above the video, so it reads as part of the orb */}
-            <div
-              aria-hidden
-              className="pointer-events-none absolute inset-0"
-              style={{
-                background:
-                  "radial-gradient(circle at 35% 30%, rgb(255 255 255 / 0.28) 0%, transparent 42%), radial-gradient(circle at 72% 78%, rgb(0 0 0 / 0.4) 0%, transparent 62%)",
-                boxShadow:
-                  "inset 0 0 0 1px rgb(217 139 52 / 0.35), inset 0 -30px 60px -30px rgb(0 0 0 / 0.45)",
-              }}
-            />
+        <div className="pop-in relative mx-auto aspect-square w-full max-w-[40rem]">
+          {/* Soft copper halo that slowly breathes behind the glass */}
+          <div
+            aria-hidden
+            className="breathe bg-gold/30 absolute inset-[8%] rounded-full blur-3xl"
+          />
+          <div className="drift absolute inset-0">
+            {/* Frosted-glass bezel: the leaf photo shows through, blurred */}
+            <div aria-hidden className="glass absolute inset-0 rounded-full" />
+            {/* The video: one clean circle inside the bezel */}
+            <div className="ring-gold/50 absolute inset-[6.5%] overflow-hidden rounded-full shadow-[0_18px_50px_-18px_rgb(0_0_0/0.6)] ring-1">
+              <video
+                autoPlay
+                loop
+                muted
+                playsInline
+                poster="/videos/hero-tea-poster.jpg"
+                className="size-full object-cover"
+              >
+                <source src="/videos/hero-tea.mp4" type="video/mp4" />
+              </video>
+              {/* Glass sheen: a soft highlight top-left and a light vignette at the edge */}
+              <div
+                aria-hidden
+                className="pointer-events-none absolute inset-0"
+                style={{
+                  background:
+                    "radial-gradient(120% 80% at 28% 8%, rgb(255 255 255 / 0.22) 0%, transparent 55%), radial-gradient(circle at 50% 50%, transparent 64%, rgb(0 0 0 / 0.26) 100%)",
+                  boxShadow: "inset 0 0 0 1px rgb(255 255 255 / 0.22)",
+                }}
+              />
+            </div>
           </div>
         </div>
       </div>

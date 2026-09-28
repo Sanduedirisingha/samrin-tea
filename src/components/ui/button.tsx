@@ -24,7 +24,7 @@ const sizes: Record<Size, string> = {
 
 export function buttonStyles({ variant = "primary", size = "md", fullWidth }: StyleOptions = {}) {
   return cn(
-    "inline-flex items-center justify-center gap-2 rounded-full text-center font-medium tracking-wide transition-colors duration-200 disabled:cursor-not-allowed disabled:opacity-60",
+    "inline-flex items-center justify-center gap-2 rounded-full text-center font-medium tracking-wide transition-[color,background-color,border-color,transform] duration-200 motion-safe:not-disabled:hover:-translate-y-0.5 motion-safe:not-disabled:active:translate-y-0 disabled:cursor-not-allowed disabled:opacity-60",
     variants[variant],
     sizes[size],
     fullWidth && "w-full",

@@ -18,7 +18,9 @@ export function SectionHeading({
   className?: string;
 }) {
   return (
-    <div className={cn(align === "center" && "mx-auto text-center", "max-w-2xl", className)}>
+    <div
+      className={cn("reveal", align === "center" && "mx-auto text-center", "max-w-2xl", className)}
+    >
       {eyebrow && (
         <p
           className={cn(
