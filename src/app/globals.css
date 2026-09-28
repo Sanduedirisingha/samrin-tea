@@ -146,12 +146,10 @@
     .reveal-ready .reveal.is-in:not(.is-instant) {
       animation: reveal-up 1.6s cubic-bezier(0.22, 0.61, 0.36, 1) var(--reveal-delay, 0s) backwards;
     }
-    /* Left-to-right soft wipe for the approved brewing artwork (follows steps 1 → 5), plus a
-       slow sheen that glides across it now and then. */
-    .reveal-ready .reveal.reveal-wipe.is-in:not(.is-instant) {
-      mask-image: linear-gradient(90deg, #000 40%, transparent 60%);
-      mask-size: 250% 100%;
-      animation: wipe-in 3.2s cubic-bezier(0.4, 0.1, 0.3, 1) backwards;
+    /* Slow, still fade for the approved brewing artwork (no movement), plus a slow sheen that
+       glides across it now and then. */
+    .reveal-ready .reveal.reveal-fade.is-in:not(.is-instant) {
+      animation: fade-in 2.4s ease-in-out backwards;
     }
     .sheen {
       position: relative;
@@ -175,14 +173,25 @@
       animation: reveal-up 1.5s cubic-bezier(0.22, 0.61, 0.36, 1) both;
     }
   }
-  @keyframes wipe-in {
+  @media (prefers-reduced-motion: no-preference) {
+    .panel-progress {
+      animation: panel-progress 9s linear both;
+    }
+  }
+  @keyframes panel-progress {
     from {
-      mask-position: 100% 0;
-      transform: translateY(20px);
+      transform: scaleX(0);
     }
     to {
-      mask-position: 0 0;
-      transform: none;
+      transform: scaleX(1);
+    }
+  }
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
     }
   }
   @keyframes sheen {

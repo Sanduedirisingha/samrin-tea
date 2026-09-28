@@ -4,7 +4,7 @@ import { ChooseYourCup } from "@/components/sections/choose-your-cup";
 import { ContactBand } from "@/components/sections/contact-band";
 import { FeaturedProducts } from "@/components/sections/featured-products";
 import { Hero } from "@/components/sections/hero";
-import { MakingTrack } from "@/components/sections/making-track";
+import { MakingPanels } from "@/components/sections/making-panels";
 import { Origin } from "@/components/sections/origin";
 import { Story } from "@/components/sections/story";
 import { getCatalog } from "@/lib/data/products";
@@ -25,7 +25,7 @@ export default async function HomePage() {
     <>
       <Hero />
       <Origin />
-      <MakingTrack />
+      <MakingPanels />
       <BrewSteps />
       <ChooseYourCup strong={strong} bopf={bopf} />
       <FeaturedProducts products={products} />

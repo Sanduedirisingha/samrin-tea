@@ -11,7 +11,7 @@ export function BrewImage({ format }: { format: "loose" | "tea_bags" }) {
   const minWidth = format === "loose" ? "min-w-[34rem]" : "min-w-[46rem]";
   return (
     <>
-      <div className="reveal reveal-wipe sheen rounded-2xl">
+      <div className="reveal reveal-fade sheen rounded-2xl">
         <div
           role="region"
           tabIndex={0}
