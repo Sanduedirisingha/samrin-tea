@@ -14,6 +14,3 @@ export function useMediaQuery(query: string): boolean {
     () => false,
   );
 }
-
-/** Wide screens that haven't asked for reduced motion get the pinned, scroll-linked sections. */
-export const PIN_QUERY = "(min-width: 1024px) and (prefers-reduced-motion: no-preference)";
