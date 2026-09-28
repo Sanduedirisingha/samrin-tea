@@ -146,8 +146,52 @@
     .reveal-ready .reveal.is-in:not(.is-instant) {
       animation: reveal-up 1.6s cubic-bezier(0.22, 0.61, 0.36, 1) var(--reveal-delay, 0s) backwards;
     }
+    /* Left-to-right soft wipe for the approved brewing artwork (follows steps 1 → 5), plus a
+       slow sheen that glides across it now and then. */
+    .reveal-ready .reveal.reveal-wipe.is-in:not(.is-instant) {
+      mask-image: linear-gradient(90deg, #000 40%, transparent 60%);
+      mask-size: 250% 100%;
+      animation: wipe-in 3.2s cubic-bezier(0.4, 0.1, 0.3, 1) backwards;
+    }
+    .sheen {
+      position: relative;
+      overflow: hidden;
+    }
+    .sheen::after {
+      content: "";
+      pointer-events: none;
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        105deg,
+        transparent 42%,
+        rgb(255 255 255 / 0.42) 50%,
+        transparent 58%
+      );
+      transform: translateX(-120%);
+      animation: sheen 12s ease-in-out 2.5s infinite;
+    }
     .fade-up {
       animation: reveal-up 1.5s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+    }
+  }
+  @keyframes wipe-in {
+    from {
+      mask-position: 100% 0;
+      transform: translateY(20px);
+    }
+    to {
+      mask-position: 0 0;
+      transform: none;
+    }
+  }
+  @keyframes sheen {
+    0%,
+    45% {
+      transform: translateX(-120%);
+    }
+    100% {
+      transform: translateX(120%);
     }
   }
   @keyframes reveal-up {

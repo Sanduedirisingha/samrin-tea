@@ -25,12 +25,15 @@ export function RevealOnScroll() {
       { rootMargin: "0px 0px -12% 0px", threshold: 0.05 },
     );
 
+    let initial = true;
     const scan = () => {
       const fresh = Array.from(document.querySelectorAll(".reveal")).filter((el) => !seen.has(el));
       for (const el of fresh) {
         seen.add(el);
         if (el.getBoundingClientRect().top < window.innerHeight) {
-          el.classList.add("is-in", "is-instant");
+          // Already on screen at load: show as-is. Added later (tab switch, navigation): animate.
+          el.classList.add("is-in");
+          if (initial) el.classList.add("is-instant");
           continue;
         }
         const siblings = Array.from(el.parentElement?.children ?? []).filter((c) =>
@@ -40,6 +43,7 @@ export function RevealOnScroll() {
         (el as HTMLElement).style.setProperty("--reveal-delay", `${index * 0.18}s`);
         io.observe(el);
       }
+      initial = false;
     };
 
     root.classList.add("reveal-ready");
