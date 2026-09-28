@@ -136,23 +136,24 @@
     font-weight: 400;
   }
 
-  /* Gentle reveal-on-scroll — progressive enhancement, no JS, no scroll-jacking */
+  /* Slow, tranquil reveal-on-scroll. RevealOnScroll adds .reveal-ready to <html>, hides .reveal
+     elements below the fold and adds .is-in as each scrolls into view (time-based, so it reads
+     the same at any scroll speed). Without JS or with reduced motion nothing is ever hidden. */
   @media (prefers-reduced-motion: no-preference) {
-    @supports (animation-timeline: view()) {
-      .reveal {
-        animation: reveal-up linear both;
-        animation-timeline: view();
-        animation-range: entry 0% entry 35%;
-      }
+    .reveal-ready .reveal:not(.is-in) {
+      opacity: 0;
+    }
+    .reveal-ready .reveal.is-in:not(.is-instant) {
+      animation: reveal-up 1.6s cubic-bezier(0.22, 0.61, 0.36, 1) var(--reveal-delay, 0s) backwards;
     }
     .fade-up {
-      animation: reveal-up 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+      animation: reveal-up 1.5s cubic-bezier(0.22, 0.61, 0.36, 1) both;
     }
   }
   @keyframes reveal-up {
     from {
       opacity: 0;
-      transform: translateY(18px);
+      transform: translateY(28px);
     }
     to {
       opacity: 1;
@@ -176,7 +177,7 @@
   }
   @media (prefers-reduced-motion: no-preference) {
     .drift {
-      animation: drift 7s ease-in-out infinite;
+      animation: drift 11s ease-in-out infinite;
     }
   }
   @keyframes drift {
@@ -192,10 +193,10 @@
   /* Soft entrance for the hero visual, and a slow "breathing" halo behind it */
   @media (prefers-reduced-motion: no-preference) {
     .pop-in {
-      animation: pop-in 1.2s cubic-bezier(0.2, 0.7, 0.2, 1) 0.2s both;
+      animation: pop-in 2s cubic-bezier(0.22, 0.61, 0.36, 1) 0.3s both;
     }
     .breathe {
-      animation: breathe 9s ease-in-out infinite;
+      animation: breathe 13s ease-in-out infinite;
     }
   }
   @keyframes pop-in {

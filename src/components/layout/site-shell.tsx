@@ -2,6 +2,7 @@
 
 import { usePathname } from "next/navigation";
 import type { ReactNode } from "react";
+import { RevealOnScroll } from "./reveal-on-scroll";
 
 /**
  * Wraps pages in the storefront chrome (skip link, header, footer). The admin dashboard has its
@@ -29,6 +30,7 @@ export function SiteShell({
       >
         Skip to content
       </a>
+      <RevealOnScroll />
       {header}
       <main id="main" className="flex-1">
         {children}

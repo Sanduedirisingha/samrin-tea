@@ -27,7 +27,7 @@ export function ProductCard({
   return (
     <article
       className={cn(
-        "group border-line bg-surface-2 shadow-card relative flex w-full flex-col overflow-hidden rounded-2xl border border-t-4 transition-[transform,box-shadow] duration-300 hover:shadow-[0_16px_36px_-16px_rgb(4_40_16/0.35)] motion-safe:hover:-translate-y-1",
+        "group border-line bg-surface-2 shadow-card relative flex w-full flex-col overflow-hidden rounded-2xl border border-t-4 transition-[transform,box-shadow] duration-500 ease-out hover:shadow-[0_16px_36px_-16px_rgb(4_40_16/0.35)] motion-safe:hover:-translate-y-1",
         product.range === "strong" ? "border-t-strong" : "border-t-bopf",
       )}
     >
@@ -39,7 +39,7 @@ export function ProductCard({
             fill
             sizes={sizes}
             priority={priority}
-            className="object-contain p-3 transition-transform duration-500 group-hover:scale-[1.03]"
+            className="object-contain p-3 transition-transform duration-1000 ease-out group-hover:scale-[1.03]"
           />
         )}
       </div>

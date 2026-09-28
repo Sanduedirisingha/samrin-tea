@@ -38,7 +38,7 @@ export function Hero() {
         <div>
           <p
             className="fade-up text-muted flex items-center gap-3 text-xs font-medium tracking-[0.22em] uppercase max-md:justify-center"
-            style={{ animationDelay: "0.05s" }}
+            style={{ animationDelay: "0.2s" }}
           >
             <span aria-hidden className="bg-gold h-px w-8" />
             Pure Ceylon black tea · Ruhuna
@@ -48,12 +48,12 @@ export function Hero() {
           </h1>
           <p
             className="fade-up text-ink/85 mt-8 max-w-md text-lg leading-relaxed"
-            style={{ animationDelay: "0.18s" }}
+            style={{ animationDelay: "0.55s" }}
           >
             Factory-fresh Ruhuna tea, straight from the source. Single region, unblended, packed
             directly from the factory where it is made.
           </p>
-          <div className="fade-up mt-10 flex flex-wrap gap-3" style={{ animationDelay: "0.3s" }}>
+          <div className="fade-up mt-10 flex flex-wrap gap-3" style={{ animationDelay: "0.9s" }}>
             <ButtonLink href="/shop" variant="on-dark" size="lg">
               Shop tea
             </ButtonLink>
@@ -61,7 +61,7 @@ export function Hero() {
               Business supply
             </ButtonLink>
           </div>
-          <div className="fade-up mt-10 space-y-2" style={{ animationDelay: "0.42s" }}>
+          <div className="fade-up mt-10 space-y-2" style={{ animationDelay: "1.25s" }}>
             <Trilingual className="text-base" />
             <p className="text-muted text-xs tracking-[0.14em] uppercase">{siteConfig.tagline}</p>
           </div>
